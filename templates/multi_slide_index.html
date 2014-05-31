@@ -1,0 +1,227 @@
+
+
+{% extends "base.html" %}
+
+
+{% block title_detail %}
+	Philip Mann, Music Director
+{% endblock %}
+
+
+add  comment {% comment %}{% endcomment %}tags around the slideshow block to disable the slideshow
+{% block slideshow %}
+	
+ 	function slideSwitch()
+	{
+	    var $active = $('#slideshow span.active');
+	
+	    if ( $active.length == 0 ) $active = $('#slideshow span:last');
+	
+	    // use this to pull the images in the order they appear in the markup
+	    var $next =  $active.next().length ? $active.next()
+	        : $('#slideshow span:first');
+	
+	    // uncomment the 3 lines below to pull the images in random order
+	    
+	    // var $sibs  = $active.siblings();
+	    // var rndNum = Math.floor(Math.random() * $sibs.length );
+	    // var $next  = $( $sibs[ rndNum ] );
+	
+	
+	    $active.addClass('last-active');
+	
+	    $next.css({opacity: 0.0})
+	        .addClass('active')
+	        .animate({opacity: 1.0}, 1000, function() {
+	            $active.removeClass('active last-active');
+	        });
+	}
+
+	$(function()
+	{
+   	 	setInterval( "slideSwitch()", 5000 );
+	});
+	
+	
+{% endblock %}
+
+{% block pre_nav %}
+
+		<div id="navigation_highlight"></div>
+
+{% endblock %}	
+
+
+{% block post_nav %}
+
+	<div id="main_content">
+
+		<table width="960" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td width="960" bgcolor="#ffffff">
+				<div id="slideshow">
+					
+					
+
+
+					<span class="active">
+						<a href="/concerts/inc-mozart-candlelight"><img src="/media/images/main_banner/inc3_banner.png" alt="Mozart by Candlelight" border="0"></a>
+					</span>
+
+
+					<span class>
+						<a href="/education/freekids"><img src="/media/images/main_banner/entergykids.png" alt="Entergy Kids Ticket" border="0"></a>
+					</span>
+
+					<span class>
+						<a href="/season" alt="Arkansas Symphony Orchestra 2014-2015 Season"><img src="/media/images/main_banner/1415season_banner_temp.jpg" title="Click for Details!" alt="New Subscribers Save 50% - Click for Details!" border="0"></a>
+					</span>
+
+
+
+
+
+
+					
+
+
+
+
+
+
+
+
+				</div>
+			</td>
+		</tr>
+		</table>
+		
+		<div id="main_bottom">
+			<table width="960" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td width="20"></td>
+				<td width="440" valign="top">
+					<div id="upcoming">
+						{% for show in showList %}
+						
+							<div class="event">	
+								
+								<div class="event_left">
+									<img src="/media/{{ show.small_picture }}">
+								</div>
+				
+								
+								<div class="event_right">
+									<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+									
+									<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>									<br>
+									
+									{% ifequal show.type "classical" %}
+										<font color="#2d9bfd">masterworks</font>
+									{% else %}
+										<font color="#2d9bfd">{{ show.type }}</font>
+									{% endifequal %}
+							
+									{{ show.short_desc|linebreaks }}
+									<!--<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info<br/><br/></a>-->
+									<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info<br/><br/></a>
+									
+								</div>
+								
+							</div>	
+							<br>
+						{% endfor %}
+							
+						<a href="/concerts/all/upcoming/2013-2014/" class="smallBlue">more concerts</a>
+					
+					</div>
+				</td>
+
+				<td width="500" valign="top">
+				<table width="455" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td width="215">
+								<img src="/media/images/education.jpg" alt="Education Programs"><br>
+								
+								<div style="background: url(/media/images/gradient.png) repeat-x 0% 100%; height: 105px; width: 215px;">
+									
+									<table width="215" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="215" colspan="3" style="height: 10px;"></td>
+										</tr>
+										<tr>
+											<td width="15"></td>
+											<td width="185" style="font-size: 11px;">			
+												<a href="/education/" class="smallBlue"><b>Education Programs</b></a><br>
+												Our programs reached 24,000 children last year.<br>
+												<p align="right">
+													<a href="/education/" class="smallBlue">more info</a>
+												</p>
+												
+											</td>
+											<td width="15"></td>
+										</tr>
+									</table>
+										
+								</div>
+							</td>
+							
+							<td width="25">
+							</td>
+							
+							<td width="215">
+								<img src="/media/images/childrensconcerts.jpg" alt="Entergy Kids' Ticket"><br>
+								
+								<div style="background: url(/media/images/gradient.png) repeat-x 0% 100%; height: 105px; width: 215px;">
+									
+									<table width="215" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="215" colspan="3" style="height: 10px;"></td>
+										</tr>
+										<tr>
+											<td width="15"></td>
+											<td width="185" style="font-size: 11px;">			
+												<a href="/education/freekids/" class="smallBlue"><b>Entergy Kids' Ticket</b></a><br>
+												Free concerts for kids!<br><br>
+												<p align="right">
+													<a href="/education/freekids/" class="smallBlue">more info</a>
+												</p>
+												
+											</td>
+											<td width="15"></td>
+										</tr>
+									</table>
+										
+								</div>
+							</td>
+						</tr>
+					</table>
+						
+					<table width="455" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="455" colspan="2">
+<br>
+
+	<div id="donate_button"><a href="https://www.arkansassymphony.org/donate/"><img src="/media/images/donate_button.jpg" alt="Support the ASO"/></a></div><br/><br/>
+	<!--<font size="5">Preview: Cirque de la Symphonie</font><br>Maestro Philip Mann previews <em>Midori and Tchaikovsky</em><br>
+                                                          <iframe width="420" height="315" src="http://www.youtube.com/embed/sRQPS_FcEt0?rel=0" frameborder="0" allowfullscreen></iframe>     <br/><br/>-->
+	<!--<font size="5"><a href="/connect/media">Click here for ASO videos and photo galleries!</a></font><br/><br/>-->
+						
+							</td>
+							
+							
+						</tr>
+						
+					
+					</table>
+			<a class="twitter-timeline" href="https://twitter.com/ARSymphony" height="400" width="455" data-theme="dark" data-chrome="noboarders" data-widget-id="347730456457912320">Tweets by @ARSymphony</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+
+{% endblock %}

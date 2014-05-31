@@ -1,0 +1,35 @@
+
+	{% extends "musicians/musicians.html" %}
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	
+			{% block musician-content %}
+			
+				<div id="mus-title">
+					{{ venue_object.name }}
+				</div>
+				<br/>
+				<a href="{{  venue_object.link_1  }}">{{  venue_object.link_1  }}</a><br/>
+				<a href="{{  venue_object.link_2  }}">{{  venue_object.link_2  }}</a><br/>
+				{{  venue_object.address  }}<br/>
+				{{  venue_object.city }}, {{  venue_object.state  }} {{  venue_object.zip_code  }}<br/>
+				Phone: {{  venue_object.phone  }}<br/><br/>
+				<div>
+					{{  venue_object.map_link|safe  }}
+				</div>
+				<br/>
+				{{  venue_object.notes  }}
+							
+			{% endblock %}
+			
+			{% block link-back %}
+			<br/><br/>
+			
+			<a href="/musicians/venues/">Back to venue list</a><br/>
+			<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}

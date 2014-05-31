@@ -1,0 +1,48 @@
+{% extends "themusic/themusic_base.html" %}
+
+{% block title_detail %}
+	Program Notes
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			<div style="float: right; display: inline; text-align: right; margin-right: 40px;">
+				{% ifequal sortBy 'composer' %}
+					sort by: <b>composer</b>&nbsp;|&nbsp;<a href="/themusic/notes/title/" class="orange">title</a>
+				{% endifequal %}
+				
+				{% ifequal sortBy 'title' %}
+					sort by: <a href="/themusic/notes/composer/" class="orange">composer</a>&nbsp;|&nbsp;<b>title</b>
+				{% endifequal %}
+				
+			</div>
+			
+			<div style="font-size: 24px; margin-bottom: 5px;">Program Notes</div><br><br>
+			
+			<div id="note_list">
+				<table width="600" cellpadding="0" cellspacing="0" border="0">
+					
+					{% for piece in pieceList %}
+						{% if piece.program_note %}
+							<tr>
+								<td width="200">&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#cc6600">{{ piece.composer }}</font></b></td>
+								<td width="290">{{ piece.title }}</td>
+								<td width="110"><a href="/themusic/notes/{{ piece.url_name }}/{{ piece.show.url_name }}/" class="orange">About this piece</a>
+							</tr>
+						{% endif %}
+					{% endfor %}
+					
+				</table>
+			</div>
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

@@ -1,0 +1,32 @@
+{% extends "designerhouse/designer-main.html" %}
+{% if designer_list %}
+
+{% block title %}Designer{% endblock %}
+
+{% block page_title %}
+	<div class="row">
+		<div class="six columns centered">
+			<div id="designer_title">
+				Designers<br/>
+				<hr/>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="eight columns offset-by-four">
+			<div id="designer_list">
+				{% if designer_list %}
+					{% for designer in designer_list %}
+						{{  designer.designer_name  }}, <em>{{  designer.description  }}</em><br/>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+					
+{% block sub_content %}
+
+{% endblock %}
+{% endif %}				
+	

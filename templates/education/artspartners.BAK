@@ -1,0 +1,116 @@
+{% extends "education/education_base.html" %}
+
+{% block title_detail %}
+	ASO Quartet Demos
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<div style="font-size: 24px; margin-bottom: 5px;">ASO Quartet Demos</div><br><br>
+			
+	
+Traveling to schools throughout Arkansas, the Quapaw Quartet and Rockefeller Quartet are eight of the Arkansas Symphony's full-time musicians and educators.  Four brand new 30 minute demos are offered every school year to introduce 2nd through 8th grade students to different concepts in music.  Each demo can be linked to your class curriculum in many subjects.  In addition, instrumental petting zoos give each student an up close experience with string instruments!  If you are interested in having one of the Arkansas Symphony Orchestra's Quartets visit your school, please contact Leanne Day-Simpson at (501) 666-1761 ext. 128 or <a href="mailto:education@arkansassymphony.org" class="orange">education@arkansassymphony.org</a>.
+				<br><br>
+The Arkansas Symphony Orchestra is also an Arkansas Arts Council "Arts in Education" (AIE) Mini-Grant artist.  Grants can be obtained to have one of our Quartets visit your school.  For more information, please visit <a href="http://www.arkansasarts.org/grants/Default.aspx#10" class="orange">http://www.arkansasarts.org/grants/Default.aspx#10</a>.
+			<br><br><br>
+<a href="/media/ed_brochure_1213.pdf" class="orange">Download our Brochure</a><br><br><br><br>
+				
+			<div style="float: right; display: inline; width: 250px;">
+				
+				
+				
+			
+				
+			</div>
+	
+			Pricing:  $90 each demo or 3 for $200 | Approximately 100 person limit | Grade 2-8<br/><br/>	
+			
+			<div style="width: 350px;">
+			
+				
+				<div style="font-size: 18px; color: #2d9bfd;">
+					Meet the String Family: <br/>
+					<i>Game Show Edition</i>
+				</div>
+				<br>
+					Duration: 30 min. for demo | 45 min. with petting zoo<br/>
+					See the string family come to life with the help of the Quapaw Quartet!  
+					Your students will learn new musical terms and conceepts as each member 
+					of the string family is introduced.  The quartet will lead activities 
+					to enhance what your students have just learned.  Complement this 
+					demo by adding an instrument petting zoo to give your students an 
+					exciting hands-on experience!*  
+					Top off your students' day with the chance to perform their prepared 
+					recorder piece with the pros!  Select a piece of your choice from "Recorder Karate."
+				<br><br><br><br>
+				
+				<div style="font-size: 18px; color: #2d9bfd;">
+					American Road Trip
+				</div>
+				<br>
+					Duration: 30 min. for demo | 45 min. with petting zoo<br/>
+					All aboard!  Follow the Quapaw Quartet as they guide you and your best 
+					friends on a trip visiting fun and exciting musical hot spots in the 
+					United States of America!  Switch on your car stereo as you travel from 
+					place to place and learn while you listen to the distinctive music of each 
+					hot spot.  Top off your students' day with the chance to perform their 
+					prepared recorder piece with the pros from "Recorder Karate!"  Interactive 
+					and fun, this demo will take your students on an enjoyable, yet educational, ride!
+				<br><br><br><br>
+				
+				<div style="font-size: 18px; color: #2d9bfd;">
+					Music Around the World
+				</div>
+				<br>
+					Duration: 30 min. | 45 min. with petting zoo<br/>
+					Have you ever had the chance to go to far-off countries?  Have you traveled 
+					to exotic locations by plane or by sea?  The Rockefeller Quartet can bring 
+					the essence of those lands ou've dreamed of right to your classroom.  Jet 
+					set around the world with the Rockefeller Quartet as your guides and learn 
+					about an assortment of songs and styles from different countries around the world!  
+					Top off your students' day with the chance to perform their prepared recorder piece 
+					with the pros!  Select a piece of your choice from "Recorder Karate."  Bon voyage!
+
+				<br><br><br><br>
+				
+				<div style="font-size: 18px; color: #2d9bfd;">
+					Fun & Games with Music
+				</div>
+				<br>
+					Duration: 30 min. for demo | 45 min. with petting zoo<br/>
+					Every kid dreams of recess while sitting at their desk during school time.  Instead, 
+					bring recess to the classroom and let your students learn while they play!  Music 
+					is not always as serious and stern as you might imagine.  These musical selections 
+					will make any dreary day a bright and cheerful one.  Let the Rockefeller Quartet 
+					play musical games with your students...they will have a great time while learning 
+					something new!  Top off your students' day with the chance to perform their prepared 
+					recorder piece with the pros from "Recorder Karate!"  Everybody wins with this program!
+
+
+				<br/><br/<br/><br/>
+
+				<div style="font-size: 18px; color: #2d9bfd;">
+					*Instrument Petting Zoos
+				</div>
+				<br/>
+					Price: $35<br/>
+					Duration: 15 min.<br/>
+					Give each of your students the chance to touch and play a violin, viola, and cello 
+					with the guidance of a quartet member.  Complement and of the demos above by adding 
+					an instrument petting zoo!  This hands on experience will be the highlight of the day!
+
+				<br/><br/><br/><br/>
+				
+				
+			</div>
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

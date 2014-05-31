@@ -1,0 +1,26 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	{% block musician-content %}
+	
+		<div id="mus-title">
+			Human Resources Documents
+		</div><br/><br/>
+		{% if docs_list %}
+			{% for doc in docs_list %}
+				<a href="{{  MEDIA_URL  }}{{  doc.file  }}">{{  doc.name  }}</a> - {{  doc.description  }}
+				<br/>
+			{% endfor %}
+		{% endif %}	
+		
+		
+	{% endblock %}
+	{% block link-back %}
+	<br/><br/>
+		<a href="/musicians/">Musician Home</a>
+	
+	{% endblock %}

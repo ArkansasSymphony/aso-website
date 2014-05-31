@@ -1,0 +1,20 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	{% block musician-content %}
+	
+	<!--Staff Members------------------------------------------------------------------------------>
+		<div id="mus-title">Contacts</div><br/><br/>
+		<a href="{{  MEDIA_URL  }}{{  concert_doc.file  }}">Contract Musicians</a><br/>
+		<a href="/musicians/staff-contact/">Staff Directory<br/><br/>
+	
+	{% endblock %}
+	{% block link-back %}
+	<br/>
+		<a href="/musicians/">Musician Home</a>
+	
+	{% endblock %}

@@ -1,0 +1,162 @@
+body, html {
+width:100%;
+background:#000000;
+font-family:verdana;
+line-height:200%;
+
+}
+
+.errornote {
+color:#ffffff;
+background-color:#FF0000;
+
+}
+
+#small_note_text {
+font-size:12px;
+
+}
+
+.main {
+background-color:#fff;
+width:960px;
+margin:0 auto;
+min-height:1000px;
+
+}
+
+.musician-header {
+background-color:#fff;
+width:960px;
+margin:0 auto;
+padding-top:20px;
+}
+
+#mus-title {
+text-align:left;
+font-color:#000;
+font-size:24px;
+
+}
+
+#main-navigation {
+background-color:#fff;
+
+}
+
+.main-header {
+background-color:#fff;
+
+}
+
+#social {
+background-color:#fff;
+text-align:right;
+
+}
+
+#confirmation button {
+background-color:#4D4D4D;
+border:none;
+font-style:verdana;
+color:#E6E6E6;
+
+}
+
+#concert-list {
+padding-bottom:20px;
+
+}
+
+#concert-page {
+line-height:120%;
+}
+
+#staff-directory {
+line-height:100%;
+
+}
+
+#staff-directory a {
+/*color:#C60;*/
+color:#2BA6CB;
+}
+
+#master-agreement {
+line-height:150%;
+
+}
+
+#master-title {
+text-align:center;
+font-color:#000;
+font-size:24px;
+
+}
+
+form li {
+list-style-type:none;
+
+}
+/***********Wage chart styles**************/
+
+.wage table {
+border:none;
+width:100%;
+
+}
+
+.wage td {
+padding:0;
+
+}
+
+th#heading {
+background-color:#CFE0E1;
+}
+
+table tbody tr:nth-child(even) {
+background: #fff;
+}
+
+.wage caption {
+font-size:22px;
+
+}
+
+table#signatures {
+width:100%;
+border:none;
+
+}
+/******************************************/
+
+/****************Concert info page styles************************/
+
+#program-list.columns {
+padding:0px;
+
+}
+
+.footer{
+background-color:#fff;
+
+}
+
+
+.footer p {
+font-size:12px;
+
+}
+
+#sponsor-block {
+background-color:#fff;
+text-align:center;
+
+}
+
+#sponsor-block img {
+padding:0 10px 40px 40px;
+
+}
+

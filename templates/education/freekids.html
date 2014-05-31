@@ -1,0 +1,111 @@
+{% extends "education/education_base.html" %}
+
+{% block title_detail %}
+	Free Concerts for Kids
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+
+			<div style="float: right; display: inline; text-align: right; margin-right: 40px;"> 
+<a href="http://www.entergy.com"><img 
+src="/media/images/entergy.png" 
+alt="Entergy" border="0"></a>				
+			</div> 
+
+
+			<div style="font-size: 24px; margin-bottom: 5px;">Entergy Kids' Ticket</div><br><br>
+			
+			The Arkansas Symphony Orchestra presents its newest outreach program to all children and
+			parents in the entire state of Arkansas. This program offers every student, from Kindergarten to
+			High School seniors—all 400,000 of them—the chance to experience live orchestra performances,
+			some of them, perhaps for the first time in their lives.
+			
+			<br><br>
+			
+			To take advantage of this special program, call our Box Office at (501) 666-1761 to book your tickets.  We apologize that we cannot accept orders for this program online at this time.
+			
+			<br><br><a href="/media/entergykids.pdf" class="orange">Download Program Information</a>
+			<br><br><br>
+			
+			<div style="float: right; display: inline; text-align: right; margin-right: 20px;">
+				Jump to:&nbsp;&nbsp;<a href="#pops" class="orange">Pops</a>&nbsp;&nbsp;<a href="#masterworks" class="orange">Masterworks</a>
+				
+				
+			</div>
+			
+			<a name="pops"><div style="font-size: 24px; margin-bottom: 5px;">Pops Live!</div></a><br><br>
+			
+			{% for show in popsList %}
+			
+				<div class="event">	
+					
+					<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+					</div>
+						
+					<div class="event_right">
+						<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+						
+						<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+						<br>
+						<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+					
+						{{ show.short_desc|linebreaks }}
+						<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+						
+					</div>
+					
+				</div>	
+				<br><br>
+			
+			{% endfor %}
+				
+			<a name="masterworks"><div style="font-size: 24px; margin-bottom: 5px;">Masterworks</div></a><br><br>
+			
+			{% for show in mwList %}
+			
+				<div class="event">	
+	
+					
+					<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+					</div>
+				
+					<div class="event_right">
+						<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+						
+						<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+						<br>
+						<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+					
+						{{ show.short_desc|linebreaks }}
+						<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+						
+					</div>
+					
+				</div>	
+				<br><br>
+			
+			{% endfor %}
+						
+			
+			
+			
+			
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

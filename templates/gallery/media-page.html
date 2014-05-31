@@ -1,0 +1,27 @@
+{% extends "gallery/gallery_base.html" %}
+{% block title_detail %}Media{% endblock %}
+
+{% block post_nav %}
+	<td width="700" valign="top">
+	<div id="content">
+		<table width="650">
+			<br/><br/>
+			<div class="title-heading">Arkansas Symphony Media Galleries</div>
+			<br/><br/>
+				<div class="media-thumbnail">
+					<a href="/connect/media/photo"><img src="{{  MEDIA_URL  }}photo_button.jpg"/></a><br/>
+				</div>
+			<br/>
+				<div class="media-thumbnail">
+					<a href="/connect/media/video"><img src="{{  MEDIA_URL  }}video_button.jpg"/></a><br/>
+				</div>
+			<br/>
+				<div class="media-thumbnail">
+					<a href="/connect/media/audio"><img src="{{  MEDIA_URL  }}audio_button.jpg"/></a><br/>
+				</div>	
+		</table>
+	</div>
+	</table>
+	</td>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+
+	{% extends "musicians/musicians.html" %}
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	
+			{% block musician-content %}
+			
+				<div id="mus-title">
+					Concert Information {{  current_season  }}
+				</div>
+				<br/>
+				<div id="concert-page">
+					{% if concert_list %}
+						<b>Masterworks</b><br/><br/>
+						{% for concert in concert_list %}
+							{% if concert.type == 'classical' %}
+								<a href="/musicians/concert-info/{{  concert.url_name  }}/"><i>{{  concert.name  }}</i><br/></a>											
+							{% endif %}
+						{% endfor %}
+						<br/><b>Pops</b><br/><br/>
+						{% for concert in concert_list %}
+							{% if concert.type == "pops" %}
+								<a href="/musicians/concert-info/{{  concert.url_name  }}/"><i>{{  concert.name  }}</i><br/></a>				
+							{% endif %}
+						{% endfor %}
+						<br/><b>I.N.C.</b><br/><br/>
+						{% for concert in concert_list %}
+							{% if concert.type == "I.N.C." %}
+								<a href="/musicians/concert-info/{{  concert.url_name  }}/"><i>{{  concert.name  }}</i><br/></a>				
+							{% endif %}
+						{% endfor %}
+						<br/><b>River Rhapsodies</b><br/><br/>
+						{% for concert in concert_list %}
+							{% if concert.type == "chamber" %}
+								<a href="/musicians/concert-info/{{  concert.url_name  }}/"><i>{{  concert.name  }}</i><br/></a>				
+							{% endif %}
+						{% endfor %}
+						<br/><b>Other Concerts</b><br/><br/>
+						{% for concert in concert_list %}
+							{% if concert.type == "other" %}
+								{% if concert.name == "Other" %}
+								{% else %}
+								<a href="/musicians/concert-info/{{  concert.url_name  }}/"><i>{{  concert.name  }}</i><br/></a>
+								{% endif %}	
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+				</div>
+				
+			{% endblock %}
+			{% block link-back %}
+			<br/>
+				<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}

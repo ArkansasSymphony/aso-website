@@ -1,0 +1,26 @@
+{% extends 'asyo/base.html' %}
+{% load url from future %}
+{% block title %}Register Student{% endblock %}
+
+{% block content %}
+	{% include 'asyo/user_panel.html' %}
+	{% if reg_form.errors %}
+		<p style="color: red;">
+                Please correct the error{{ reg_form.errors|pluralize }} below.
+            </p>
+	{% endif %}
+	{% if updating == '' %}
+	<h1>Updating Student for {{ app_parent.first_name }}</h1>
+	{% else %}
+	<h1>Registering New Student for {{ app_parent.first_name }}</h1>
+	{% endif %}
+	<form method="post" action="">
+		{% csrf_token %}
+    	<table>
+        	{{ reg_form }}
+    	</table>
+    	<input type="submit" value="Register" />
+		<input type="hidden" name="next" value="{{ next }}" />
+    </form>
+    <p>{{ error }}</p>
+{% endblock %}

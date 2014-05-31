@@ -1,0 +1,60 @@
+{% extends "connect/connect_base.html" %}
+{% block title_detail %} {{ gallery.title }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+ <td width="700" valign="top">
+                <div id="content">
+                        <br><br>
+
+
+{% if gallery %}
+<div style="font-size: 24px; margin-bottom: 5px;">{{ gallery.title }}</div><br>
+<a href="/connect/photos/upload/{{ gallery.id }}/" class="orange">Upload Your Own Photo</a>
+<br>
+<br> 
+<br>
+
+<div id="thumbnail-box">
+<ul id="thumbnails">
+{% for item in photoList.all %}
+<li>
+  <div class="small-image-box">
+    <a href="../detail/{{ item.id }}">
+      <img src="{{ item.thumburl }}"
+           alt="{{ item.title }}" />
+    </a>
+  </div>
+</li>                  
+{% endfor %}
+</ul>
+</div>
+{% else %}
+{% endif %}
+<br><br>
+{% ifnotequal previous -1 %}
+<div style="float: left">
+<a href="/connect/photos/{{ gallery.id }}/?start={{ previous }}" class="orange">
+  <span>&laquo;  Previous </span></a>
+</div>
+{% endifnotequal %}
+{% ifnotequal next -1 %}
+<div style="float: right;">
+  <a href="/connect/photos/{{ gallery.id }}/?start={{ next }}" class="orange">
+  <span>Next &raquo;</span></a>
+</div>
+
+
+{% endifnotequal %}
+
+
+<br class="imageboxes-break"/>
+
+
+
+</div>
+</td></tr></table>
+
+{% endblock %}

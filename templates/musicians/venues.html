@@ -1,0 +1,38 @@
+
+	{% extends "musicians/musicians.html" %}
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	
+			{% block musician-content %}
+			
+				<div id="mus-title">
+					Venues
+				</div>
+				<br/>
+				{% if venue_list %}
+					<h6>Small and Full Orchestra Venues</h6>
+					{% for venue in venue_list %}
+						{% if venue.venue_type == "orchestra" %}
+							<a href="/musicians/venues/{{  venue.url_name  }}/">{{  venue.name  }}</a><br/>
+						{% endif %}
+					{% endfor %}
+					<h6>Chamber and Other Venues</h6>
+					{% for venue in venue_list %}
+						{% if venue.venue_type == "chamber" %}
+							{{  venue.name  }}<br/>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+							
+			{% endblock %}
+			
+			{% block link-back %}
+			<br/>
+			
+			<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}

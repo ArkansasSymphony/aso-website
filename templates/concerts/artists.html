@@ -1,0 +1,41 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	{{ artist.name }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			
+			<div style="font-size: 24px; margin-bottom: 5px;">{{ artist.name }}</div>
+			<br>			
+			Performs on <a href="/concerts/{{ show.url_name }}" class="orange">{{ show.name }}, {{ show.short_month}} {{ show.short_day }}</a><br>
+			
+			{% ifnotequal artist.website "" %}
+				Official website: <a href="{{ artist.website }}" class="orange">{{ artist.website }}</a><br><br>
+			{% endifnotequal %}
+			
+			{% ifnotequal artist.picture "" %}
+			 <div style="float: right; display: inline; padding: 40px;">
+                                <img src="/media/{{ artist.picture }}" alt="{{ artist.name }}">
+                        </div>
+			{% endifnotequal %}
+			
+			{% if show.name  == "I.N.C. Mozart's Requiem" %}
+			{{ artist.bio|safe }}
+			{% else %}
+			{{ artist.bio|linebreaks }}
+			{% endif %}
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

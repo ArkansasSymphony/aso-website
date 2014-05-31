@@ -1,0 +1,252 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	{{ season }} Season
+{% endblock %}
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			<div style="float: right; display: inline; text-align: right; margin-right: 40px;">
+				{% ifequal display 'all' %}
+					view: <b>all</b>&nbsp;|&nbsp;<a href="/concerts/{{ category }}/upcoming/{{ season }}/" class="orange">upcoming</a>
+				{% endifequal %}
+				
+				{% ifequal display 'upcoming' %}
+					view: <a href="/concerts/{{ category }}/all/{{ season }}/" class="orange">all</a>&nbsp;|&nbsp;<b>upcoming</b>
+				{% endifequal %}
+				
+				
+			</div>
+			
+			{% ifequal category "masterworks" %}
+				<div style="font-size: 24px; margin-bottom: 5px;"><a name="masterworks">{{ season }} Stella Boyle Smith <br/>Masterworks Series</a></div><br><br>
+					
+				{% for show in mwList %}
+					
+					
+					<div class="event_long">	
+						
+						<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+						</div>
+		
+						
+						<div class="event_right_long">
+							<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+							
+							<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+							<br>
+							<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+						
+							{{ show.short_desc|linebreaks }}
+							<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info</a>
+							
+						</div>
+						
+					</div>	
+					<br><br>
+				
+				{% endfor %}
+				
+				<br><br>
+						
+			{% endifequal %}
+			
+		
+			
+			{% ifequal category "pops" %}
+			
+				<div style="font-size: 24px; margin-bottom: 5px;"><a name="pops">{{ season }} Acxiom Pops Live! Series</a></div><br><br>
+			
+				{% for show in popsList %}
+					
+					
+					<div class="event_long">	
+						
+						<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+						</div>
+		
+						
+						<div class="event_right_long">
+							<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+							
+							<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+							<br>
+							<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+						
+									{{ show.short_desc|linebreaks }}
+					<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info</a>
+							
+						</div>
+						
+					</div>	
+					<br><br>
+				{% endfor %}
+				
+				<br><br>
+			{% endifequal %}
+			
+			
+			
+			{% ifequal category "chamber" %}
+				
+				
+				<div style="font-size: 24px; margin-bottom: 5px;"><a name="chamber">{{ season }} River Rhapsodies Series</a></div><br><br>
+			
+				{% for show in chamberList %}
+					
+					
+					<div class="event_long">	
+						
+						<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+						</div>
+		
+						
+						<div class="event_right_long">
+							<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+							
+							<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+							<br>
+							<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+						
+							{{ show.short_desc|linebreaks }}
+							<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info</a>
+							
+						</div>
+						
+					</div>	
+					<br><br>
+					
+				{% endfor %}
+			{% endifequal %}
+
+			{% ifequal category "neighborhood" %}
+				
+				
+				<div style="font-size: 24px; margin-bottom: 5px;"><a name="neighborhood">{{ season }} Intimate Neighborhood Concerts</a></div><br><br>
+			
+				{% for show in neighborhoodList %}
+					
+					
+					<div class="event_long">	
+						
+						<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+						</div>
+		
+						
+						<div class="event_right_long">
+							<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+							
+							<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+							<br>
+							<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+						
+							{{ show.short_desc|linebreaks }}
+							<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info</a>
+							
+						</div>
+						
+					</div>	
+					<br><br>
+					
+				{% endfor %}
+			{% endifequal %}
+
+			{% ifequal category "other" %}
+				
+				
+				<div style="font-size: 24px; margin-bottom: 5px;"><a name="other">{{ season }} Other ASO Concerts</a></div><br><br>
+			
+				{% for show in otherList %}
+					
+					
+					<div class="event_long">	
+						
+						<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+						</div>
+		
+						
+						<div class="event_right_long">
+							<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+							
+							<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+							<br>
+							<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+						
+							{{ show.short_desc|linebreaks }}
+							<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info</a>
+							
+						</div>
+						
+					</div>	
+					<br><br>
+					
+				{% endfor %}
+			{% endifequal %}
+			
+			
+			{% ifequal category "all" %}
+				
+				
+				<div style="font-size: 24px; margin-bottom: 5px;"><a name="chamber">{{ season }} Season</a></div><br><br>
+			
+				{% for show in showList %}
+					
+					
+					<div class="event_long">	
+						
+						<div class="event_left">
+							{% if show.small_picture %}
+								<img src="/media/{{ show.small_picture }}">
+							{% endif %}
+						</div>
+		
+						
+						<div class="event_right_long">
+							<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+							
+							<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+							<br>
+							{% ifequal show.type "classical" %}
+								<font color="#2d9bfd">masterworks</font>
+							{% else %}
+								<font color="#2d9bfd">{{ show.type }}</font>
+							{% endifequal %}
+						
+	
+									{{ show.short_desc|linebreaks }}
+							<a href="/concerts/{{ show.url_name }}" class="button_blue">Tickets & Info</a>
+							
+						</div>
+						
+					</div>	
+					<br><br>
+					
+				{% endfor %}
+			{% endifequal %}
+		
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

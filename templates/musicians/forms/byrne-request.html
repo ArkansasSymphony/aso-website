@@ -1,0 +1,75 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+	
+		<div id="mus-title">
+			Byrne Hall Request Form
+		</div>
+		<br/>
+		
+		<form action="" method="post">{% csrf_token %}
+
+			{% if errors %}
+				<div class="errornote">Please correct the error(s) below:</div>
+				</div>
+				{{ form.non_field_errors }}
+
+			{% endif %}
+			<div class="fieldWrapper">
+				{% if form.name.errors %}
+				<div class="errornote">{{ form.name.errors }}</div>
+				{% endif %}
+				<label for="id_subject">Your name:</label>
+				{{ form.name }}
+			</div>
+			<div class="fieldWrapper">
+				{% if form.email.errors %}
+				<div class="errornote">{{ form.email.errors }}</div>
+				{% endif %}
+				<label for="id_message">Your email address:</label>
+				{{ form.email }}
+			</div>
+			<div class="fieldWrapper">
+				{% if form.date.errors %}
+				<div class="errornote"><br/>Please {{ form.date.errors }} - format MM/DD/YYYY</div>
+				{% endif %}
+				<label for="id_sender">Request Date(<i>MM/DD/YYYY</i>):</label>
+				{{ form.date }}
+			</div>
+			<div class="fieldWrapper">
+				{% if form.start_time.errors %}
+				<div class="errornote">{{ form.start_time.errors }}</div>
+				{% endif %}
+				<label for="id_cc_myself">Start time(24hr):</label>
+				{{ form.start_time }}
+			</div>
+			<div class="fieldWrapper">
+				{% if form.end_time.errors %}
+				<div class="errornote"{{ form.end_time.errors }}</div>
+				{% endif %}
+				<label for="id_cc_myself">End time(24hr):</label>
+				{{ form.end_time }}
+			</div>
+			<div class="fieldWrapper">
+				{% if form.use.errors %}
+				<div class="errornote">{{ form.use.errors }}</div>
+				{% endif %}
+				<label for="id_cc_myself">What will Byrne Hall be used for?:</label>
+				{{ form.use }}
+			</div>
+			<div class="fieldWrapper">
+				{% if form.multi.errors %}
+				<div class="errornote">{{ form.multi.errors }}</div>
+				{% endif %}
+				<label for="id_cc_myself">For multiple requests/times, please list:</label>
+				{{ form.multi }}
+			</div>
+			<p><input type="submit" value="Submit request" /></p>
+		</form>
+		
+		<p><i>This is a request only.  You will receive a confirmation of your request immediately.
+		A confirmation email will be sent when your reservation is completed.</i></p>
+		
+	{% endblock %}
+				
+				

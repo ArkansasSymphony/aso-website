@@ -1,0 +1,19 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}List of Service Claims{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+	<h1>Mileage and claim totals run on the following claims:</h1>
+	<ul>
+		{% for claim in service_claim_list %}
+		<li><a href="/admin/musicians/adminclaimform/{{  claim.id  }}/">{{  claim.name  }} - Claim total:  ${{  claim.total_claim  }}</a></li>
+		{% endfor %}
+	</ul>
+	<br/>
+	<br/>
+	<h4><a href="/admin/musicians/adminclaimform/">Click here to go to the list of claim forms</a></h4>
+</div>
+
+{% endblock %}

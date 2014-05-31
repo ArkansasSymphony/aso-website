@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block title_detail %}
+	2010-2011 Season
+{% endblock %}
+
+{% block pre_nav %}
+
+		<div id="navigation_highlight" style="margin-left: 22px;"></div>
+			
+{% endblock %}
+
+
+
+{% block left_nav %}
+	<div id="navigation_highlight_dark" style="width: 870px;"></div>
+	
+	<table width="960" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td width="260" valign="top">
+		<br>
+			<div class="nav">
+			<br>
+				<ul class="left_nav">
+					<li><a href="/concerts/all/upcoming/2014-2015/">2014-2015 Season</a></li>
+                                        <li style="padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/concerts/masterworks/upcoming/2014-2015/"><font size="1">Masterworks</font></a></li>
+                                        <li style="padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/concerts/pops/upcoming/2014-2015/"><font size="1">Pops Live!</font></a></li>
+                                        <li style="padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/concerts/chamber/upcoming/2014-2015/"><font size="1">Chamber Music</font></a></li>
+                                        <!--<li style="padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/concerts/neighborhood/upcoming/2014-2015/"><font size="1">ASO I.N.C. Series</font></a></li>-->
+                                        <!--<li style="padding:0px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/concerts/other/upcoming/2014-2015/"><font size="1">Other ASO Concerts</font></a></li>-->
+
+					<li><a href="http://tickets.arkansassymphony.org/" target="_blank">Buy Tickets</a></li>
+					<!--<li><a href="/concerts/ballet-arkansas-nutcracker/">The Nutcracker</a></li>-->
+			<li><a href="/concerts/subscriptions">Subscriptions</a></li> 
+                    <li><a href="/concerts/benefits">Subscriber Benefits</a></li> 
+					<br>
+					<li><a href="/">Home</a></li>
+				</ul>
+				
+				
+			</div>
+		
+		<center>
+			{% block concertSponsor %}{% endblock %}
+		</center>	
+	
+		</td>
+	
+		
+{% endblock %}

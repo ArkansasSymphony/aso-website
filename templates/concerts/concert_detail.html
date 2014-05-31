@@ -1,0 +1,330 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	{{ show.season }} Season - {{ show.name }}
+{% endblock %}
+
+{% block headerScripts %}
+	
+	<script language="JavaScript" src="/media/js/audio-player.js"></script>
+
+{% endblock %}
+
+
+{% block concertSponsor %}
+{% if show.sponsors.all %}
+
+                                        <font size="1">Sponsored by:</font>
+                                        <br><br>
+
+
+                                                {% for sponsor in show.sponsors.all %}
+                                                                <a 
+href="{{ sponsor.url }}"><img src="/media/{{ sponsor.picture }}" alt="{{ 
+sponsor.name }}" border="0"></a><br><br><br>
+                                                {% endfor %}
+
+
+                                {% endif %}
+	{% if show.type == "pops" %}
+	<font size="1">Media Sponsor:</font>
+	<br/><br/>
+	<a href="http://www.point941.com"><img src="{{  MEDIA_URL  }}sponsor_images/thepoint.png" alt="Media Sponsor: The Point 94.1"/></a>
+	{% endif %}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			
+			{% if  show.type == "event" %}
+			<div class="cursive">
+			{% endif %}
+	
+			<div style="font-size: 24px; margin-bottom: 5px;">{{ show.name }}</div>
+			<b>Location:</b> {{ show.location }} {% ifnotequal show.type "event" %}{% ifnotequal show.id 36 %}{% ifnotequal show.id 44 %}(<a href="/venue" class="orange">directions</a>){% endifnotequal %}{% endifnotequal %}{% endifnotequal %}<br>
+			<b>Price Range:</b>
+			
+			{% ifequal show.type "classical" %}
+				$14 - $53
+			{% endifequal %}
+			
+			{% ifequal show.type "pops" %}
+				$18 - $59
+			{% endifequal %}
+	
+			{% if show.type == "event" %}
+				{% if show.name == "Capital Hotel Concert" %}
+					Free!
+				{% else %}
+		
+				{% endif %}
+				
+			{% endif %}
+			
+			{% ifequal show.type "chamber" %}
+				{% if show.id ==  36 %}
+					Free
+				{% elif show.id == 44 %}	
+					Free
+				{% elif show.id == 68 %}
+					Free
+				{% elif show.id == 69 %}
+					Free
+				{% elif show.id == 70 %}
+					$25 - $35
+				{% elif show.id == 71 %}
+					$25 - $35
+				{% elif show.id == 72 %}
+					$25 - $35
+				{% elif show.name == "ACT in Concert: Pan's Midsummer Night's Dream" %}
+					$20, $10 students, $25 for family 4 pack
+				{% elif show.name == "Capital Hotel Concert" %}
+					Free!
+				{% else %}
+					$23
+				{% endif %}
+			{% endifequal %}
+
+			{% ifequal show.type "nutcracker" %}
+				$20 - $52
+			{% endifequal %}
+
+			{% ifequal show.id 47 %}
+				$150 per guest
+			{% endifequal %}
+
+			{% ifequal show.type "youth" %}
+				{% ifequal show.id 73 %}
+					General Admission $10
+				{% else %}
+					Adults $20 - Students $10
+				{% endifequal %}
+			{% endifequal %}
+		
+			<br><br>
+			<a href="{{ show.conductor_link }}" class="orange">{{ show.conductor }}</a><br>
+			
+			{% for artist in show.artists.all %}
+				<a href="/artists/{{ artist.url_name }}/{{ show.url_name }}/" class="orange">{{ artist.name }}</a><br>
+			{% endfor %}
+			
+			<br><br>
+			
+			{% if show.large_picture %}
+				<div id="show_photo">
+					<img src="/media/{{ show.large_picture }}">
+				</div>
+			{% endif %}
+			
+			<div id="concert_list">
+				{% for concert in concertList %}
+				{% if show.name == "Sonatas for Two - POSTPONED" %}
+					<a href="http://www.arkansassymphony.org/concerts/chamber-sonatas-for-two">POSTPONED TO MARCH 19th. Click for details.</a>
+				{% else %}
+					<b>
+					{% ifequal concert.date.month 1 %}
+						January
+					{% endifequal %}
+					{% ifequal concert.date.month 2 %}
+						February
+					{% endifequal %}
+					{% ifequal concert.date.month 3 %}
+						March
+					{% endifequal %}
+					{% ifequal concert.date.month 4 %}
+						April
+					{% endifequal %}
+					{% ifequal concert.date.month 5 %}
+						May
+					{% endifequal %}
+					{% ifequal concert.date.month 6 %}
+						June
+					{% endifequal %}
+					{% ifequal concert.date.month 7 %}
+						July
+					{% endifequal %}
+					{% ifequal concert.date.month 8 %}
+						August
+					{% endifequal %}
+					{% ifequal concert.date.month 9 %}
+						September
+					{% endifequal %}
+					{% ifequal concert.date.month 10 %}
+						October
+					{% endifequal %}
+					{% ifequal concert.date.month 11 %}
+						November
+					{% endifequal %}
+					{% ifequal concert.date.month 12 %}
+						December
+					{% endifequal %}
+					
+					{{ concert.date.day }}, {{ concert.date.year }}</b><br>
+					
+					{% ifequal concert.date.weekday 0 %}
+						Monday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 1 %}
+						Tuesday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 2 %}
+						Wednesday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 3 %}
+						Thursday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 4 %}
+						Friday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 5 %}
+						Saturday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 6 %}
+						Sunday&nbsp;at
+					{% endifequal %}
+					
+					{{ concert.time }}<br>
+					
+					
+					{% ifequal concert.is_past "False" %}
+					{% ifequal show.season "2013-2014" %}
+					{% ifnotequal show.id 36 %}
+					{% ifnotequal show.id 44 %}
+					{% ifnotequal show.id 68 %}
+					{% ifnotequal show.id 69 %}
+					{% ifnotequal show.type "event" %}
+					<div style="width: 100px; height: 15px; text-align: center; padding-top: 10px;">
+						<b class="orangeButton">
+						<b class="orangeButton1"><b></b></b>
+						<b class="orangeButton2"><b></b></b>
+						<b class="orangeButton3"></b>
+						<b class="orangeButton4"></b>
+						<b class="orangeButton5"></b></b>
+					
+						<div class="orangeButtonfg">
+								{% if show.type == "chamber" %}
+									{% if show.name == "ACT in Concert: Pan's Midsummer Night's Dream" %}
+											<a href="http://www.etix.com/ticket/online/performanceSearch.jsp?performance_id=1751888" target="_blank">Order Tickets<a/>
+										{% else %}
+											<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=show_events_list.asp?shCode={{ concert.pe_id }}" target="_blank">Order Tickets</a>
+										{% endif %}
+							
+								{% else %}
+										<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=hall.asp?event={{ concert.pe_id }}" target="_blank">Order Tickets</a>
+								{% endif %}
+						</div>
+						
+						<b class="orangeButton">
+						<b class="orangeButton5"></b>
+						<b class="orangeButton4"></b>
+						<b class="orangeButton3"></b>
+						<b class="orangeButton2"><b></b></b>
+						<b class="orangeButton1"><b></b></b></b>
+					</div>
+					
+					<br>	
+					{% else %}
+					<br>
+				
+					{% ifequal show.id 47 %}
+					Contact Julie Cabe at <br>501-661-9516<br>or jmcabe@att.net
+					{% endifequal %}
+
+					{% endifnotequal %}
+					{% endifnotequal %}
+					{% endifnotequal %}
+					{% endifnotequal %}
+					{% endifnotequal %}
+					{% endifequal %}
+
+					{% endifequal %}
+
+					{% ifnotequal show.type "event" %}
+					<br><br>
+					{% endifnotequal %}
+					{% endif %}<!--searchable-->
+				{% endfor %}
+
+
+			</div>
+			
+			<div id="program">
+				{% ifnotequal show.type "event" %}
+				<font size="5" color="#000000">Program</font>
+				<br><br>
+				{% else %}
+				<font size="5" color="#000000">Welcome!</font>
+				<br><br>
+				{% endifnotequal %}
+				
+				{% if show.description %}
+					{{ show.description|safe }}
+					<br><br>
+				{% endif %}
+
+				
+
+				{% if pieceList %}
+					<table width="600" cellpadding="0" cellspacing="0" border="0">
+				
+					{% for piece in pieceList %}
+						<tr>
+							<td width="190">&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#cc6600">{{ piece.composer }}</font></b></td>
+							<td width="300">{{ piece.title }}</td>
+							<td width="110">
+								{% if piece.program_note %}
+									<a href="/themusic/notes/{{ piece.url_name }}/{{ show.url_name }}/" class="orange">About this piece</a>
+								{% endif %}
+						</tr>
+						
+						{% if piece.music %}
+												
+							<tr>
+								<td width="600" colspan="3" style="border: none;">
+									
+									<div style="margin-left: 40px;">
+										<font color="#cc6600" size="1">listen</font>&nbsp;&nbsp;&nbsp;&nbsp;
+										<object type="application/x-shockwave-flash" data="/media/music/player.swf" id="{{ forloop.counter }}" height="14" width="80">
+											<param name="movie" value="/media/music/player.swf">
+											<param name="FlashVars" value="playerID={{ forloop.counter }}&soundFile=/media/{{ piece.music.filename }}">
+											<param name="quality" value="high">
+											<param name="menu" value="false">
+											<param name="wmode" value="transparent">
+										</object>
+									</div>
+								</td>
+							</tr>
+					
+						{% endif %}
+				
+					{% endfor %}
+					
+					</table>
+		
+				{% endif %}
+
+				{% if show.video.all %}
+					<br><br><br>
+					<!--<font size="5" color="#000000">About the Program</font>-->
+					{% for video in show.video.all %}
+					<br><br><br>
+					{{ video.url|safe }}
+					{% endfor %}
+				{% endif %}
+		
+			</div>
+			
+		
+	
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

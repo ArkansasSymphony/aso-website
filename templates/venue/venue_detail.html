@@ -1,0 +1,55 @@
+
+
+{% extends "venue/venue_base.html" %}
+
+{% block title_detail %}
+	{{ venue_object.name  }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br/>
+			<br/>
+			<div style="font-size: 24px; margin-bottom: 5px;"><a name="top"></a>{{ venue_object.name }}</div><br/>
+			<br/>
+			{% if venue_object.venue_type == "masterworks" %}
+				<i>All <a href="/concerts/masterworks/upcoming/2014-2015/" alt="2014-2015 Stella Boyle Smith Masterworks">2014-2015 Stella Boyle Smith Masterworks Series Concerts</a> will be held in the {{ venue_object.name }}.</i><br/>
+			{% elif venue_object.venue_type == "pops" %}
+				<i>All <a href="/concerts/pops/upcoming/2014-2015/" alt="2014-2015 Acxiom Pops Live! Series">2014-2015 Acxiom Pops Live! Series Concerts</a> will be held in the {{ venue_object.name }}.</i><br/>
+			{% elif venue_object.venue_type == "chamber" %}
+				<i>All <a href="/concerts/chamber/upcoming/2014-2015/" alt="2014-2015 River Rhapsodies Series">2014-2015 River Rhapsodies Chamber Music Series Concerts</a> will be held in the {{ venue_object.name }}.</i><br/>
+			{% elif venue_object.venue_type == "inc" %}
+			{% elif venue_object.venue_type == "other" %}
+			{% endif %}
+			<br/>
+			{{ venue_object.address }} {{ venue_object.city }}, {{ venue_object.state }} {{ venue_object.zip_code }}<br><br>
+			<a href="{{ venue_object.map_link }}" class="orange" target="_blank"><b>Maps and Directions from Google Maps:</b></a><br/>
+			<br/>			
+			{{ venue_object.embed_link|safe }}<br/>
+			<br/>
+			<b>{{ venue_object.first_from }}</b><br/>
+			{{ venue_object.first_directions|safe|linebreaks }}<br/>
+			<br/>
+			<b>{{ venue_object.second_from }}</b><br/>
+			{{ venue_object.second_directions|safe|linebreaks }}<br/>
+			{% if venue_object.alt_map_link == "" %}
+				<b>{{ venue_object.name }}</b><br/>			
+				<br/>
+				<img src="/media/{{ venue_object.venue_image }}" alt="{{ venue_object.name }}"/> 
+			{% else %}
+				<a href="{{ venue_object.alt_map_link }}" class="orange" target="_blank"><b>Click here for a map from {{ venue_object.second_from }}.</b></a><br/>			
+				<br/>
+				<b>{{ venue_object.name }}</b><br/>			
+				<br/>
+				<img src="/media/{{ venue_object.venue_image }}" alt="{{ venue_object.name }}"/> 
+		`	{% endif %}	
+			
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

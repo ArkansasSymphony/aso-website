@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<title>Arkansas Symphony Orchestra | {% block title_detail %}{% endblock %}</title>
+		
+		<link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/media/css/main_style.css">
+		
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+		
+		
+		<script type="text/javascript"> 
+			   
+			{% block slideshow %}
+			
+			{% endblock %}
+				
+				
+			$(document).ready(function(){
+			
+						 
+				$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
+				
+				
+				$("ul.topnav li span").hover(function() { //When trigger is hovered...
+					
+					$(this).parent().css('background', '#d9eafb');
+					
+					//Following events are applied to the subnav itself (moving subnav up and down)
+					$(this).parent().find("ul.subnav").show(); //Drop down the subnav on click
+					
+			 
+					$(this).parent().hover(function() {
+					}, function(){	
+						$(this).parent().find("ul.subnav").hide(); //When the mouse hovers out of the subnav, move it back up
+			
+						$(this).css('background', 'transparent');
+					});
+			 
+					//Following events are applied to the trigger (Hover events for the trigger)
+					}).hover(function() { 
+						$(this).addClass("subhover"); //On hover over, add class "subhover"
+					}, function(){	//On Hover Out
+						$(this).removeClass("subhover"); //On hover out, remove class "subhover"
+				});
+			 
+			});
+			
+			
+		</script> 
+	
+		{% block headerScripts %}
+		
+		{% endblock %}
+		
+		<script type="text/javascript">
+
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-33208927-1']);
+			  _gaq.push(['_trackPageview']);
+			
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+		
+		</script>
+			
+	</head>
+
+	<body>
+	
+		<div id="main">
+					
+			<div id="header">
+				<table width="950" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td width="500"><a href="/"><img src="/media/images/asologo.png" border="0" alt="Arkansas Symphony Orchestra | Philip Mann, Music Director"></a></td>
+						
+						<td width="450" align="right" valign="bottom">
+						
+							<table width="140" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td width="40"><a href="http://www.facebook.com/arkansassymphony"><img src="/media/images/icons/facebook.png" alt="Facebook" border="0"></a></td>
+								<td width="40"><a href="http://twitter.com/ARSymphony"><img src="/media/images/icons/twitter.png" alt="Twitter" border="0"></a></td>
+								<td width="60"><!--a href=""><img src="/media/images/icons/enews.png" alt="E-News" border="0"></a>--></td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			
+			</div>
+			
+			
+	
+			{% block pre_nav %}
+		
+				
+			{% endblock %}
+			
+			
+			<div id="navigation">
+			
+				<ul class="topnav">  
+					<li>  
+						<span><a href="/concerts/all/upcoming/2014-2015/"><img src="/media/images/navigation/concerts.png" alt="Concerts & Tickets" border="0"></a></span>
+						<ul class="subnav"> 
+							<li><a href="/concerts/all/upcoming/2014-2015/">2014-2015 Season</a></li>
+							<li><a href="http://tickets.arkansassymphony.org" target="_blank">Buy 
+Tickets</a></li>
+							<!--<li><a href="/concerts/ballet-arkansas-nutcracker/">Ballet Arkansas - The Nutcracker</a></li>-->
+							<li><a href="/concerts/subscriptions">Subscriptions</a></li> 
+							<li><a href="/concerts/benefits">Subscriber Benefits</a></li> 
+				                </ul> 
+					</li>  
+					<li>  
+						<span><a href="/support/benefits"><img src="/media/images/navigation/support.png" alt="Support" border="0"></a></span>
+						<ul class="subnav"> 
+							<li><a href="/support/benefits">Donor Benefits</a></li> 
+							<li><a href="https://www.arkansassymphony.org/donate/">Give Online</a></li>
+							<!--<li><a href="/designer-house">Designer House XXII</a></li>--> 
+							<li><a href="http://www.opusball.org">Opus Ball XXX</a></li>
+				                </ul> 
+						
+					</li>
+					<li>  
+						<span><a href="/themusic/musicdirector"><img src="/media/images/navigation/themusic.png" alt="The Music" border="0"></a></span>
+						<ul class="subnav"> 
+							<li><a href="/themusic/musicdirector">Music Director</a></li> 
+							<li><a href="/themusic/associate">Associate Conductor</a></li> 
+							<li><a href="/themusic/orchestra">The Orchestra</a></li> 
+							<li><a href="/themusic/notes/composer/">Program Notes</a></li>
+							<li><a href="/themusic/talks">Pre-Concert Talks</a></li>
+							<li><a href="/welcome/">Philip Welcome Video</a></li>
+				                </ul> 
+					</li>
+					<li>  
+						<span><a href="/education"><img src="/media/images/navigation/education.png" alt="Education" border="0"></a></span>
+						<ul class="subnav"> 
+							<li><a href="/education">Programs</a></li> 
+							<li><a href="/summer-strings">Summer Strings Camp</a></li>
+							<li><a href="/education/freekids">Entergy Kids' Ticket</a></li>
+							<li><a href="/education/youngartist">Young Artist Competition</a></li>
+							<li><a href="/education/childrensconcerts">Children's Concerts</a></li>
+							<li><a href="/education/youthorchestras">Youth Orchestras</a></li>
+							<li><a href="/education/quartet-visits">ASO Quartet Demos</a></li>
+							<li><a href="/education/orchestraandyou">Orchestra and You</a></li>
+							<li><a href="/education/teachers">Find a Teacher</a></li>
+				                </ul> 
+					</li>
+					<li>  
+						<span><a href="/venue"><img src="/media/images/navigation/visit.png" alt="Plan your Visit" border="0"></a></span>
+						<ul class="subnav">
+							<li><a href="/venue/maumelle-performing-arts-center">Maumelle Performing Arts Center</a></li>
+							<li><a href="/venue/pulaski-academy-connor-performing-arts-center">Pulaski Academy Connor Performing Arts Center</a></li>
+							<li><a href="/venue">Other ASO Venues</a></li>
+						</ul> 
+					</li>
+					<li>  
+						<span><a href="/connect/contactus"><img src="/media/images/navigation/connect.png" alt="Connect" border="0"></a></span>
+						<ul class="subnav">
+							<li><a href="/connect/media">ASO Media</a></li> 
+							<li><a href="http://www.arsymphonyguild.org" target="_blank">Arkansas Symphony Orchestra Guild</a></li>
+							<li><a href="http://www.symphonyguild.org" target="_blank">Hot Springs/Hot Springs Village Symphony Guild</a></li>
+							<li><a href="http://www.facebook.com/arkansassymphony" target="_blank">Become a Fan on Facebook</a></li> 
+							<li><a href="http://twitter.com/ARSymphony" target="_blank">Follow on Twitter</a></li>
+							<li><a href="http://enews.arkansassymphony.org/">E-news Letter Signup</a></li>
+							<li><a href="/connect/contactus">Contact Us</a></li>
+				                </ul> 
+					</li>
+					<li>  
+						<span><a href="/about"><img src="/media/images/navigation/about.png" alt="About" border="0"></a></span>
+						<ul class="subnav"> 
+							<li><a href="/about">About the ASO</a></li> 
+							<li><a href="/about/jobs/">Job Opportunities</a></li>
+							<li><a href="/musicians">Musician Login</a></li>
+						</ul> 
+					</li>
+					
+				</ul>  
+				
+			</div>
+			
+			
+			{% block left_nav %}
+		
+			{% endblock %}
+			
+			
+			{% block post_nav %}
+		
+			{% endblock %}
+
+						
+			<br><br>
+			
+			<div id="footer">
+				<br>
+				
+				<table width="830" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td width="190" align="right" valign="top"><font size="1">Season Sponsors:</td>
+						
+						<td width="170" align="center"><a href="http://www.acxiom.com"><img src="/media/sponsor_images/acxiom.png" border="0" alt="Acxiom"></a></td>
+						<td width="170" align="center"><a href="http://www.aa.com"><img src="/media/sponsor_images/aa_1.png" border="0" alt="American Airlines"></a></td>
+						<td width="160" align="left"><a href="http://http://www.arkansasarts.org/"><img src="/media/sponsor_images/AR_Arts_Council.jpg" border="0" alt="Arkansas 
+Arts Council"></a></td>
+					</tr>	
+					<tr>
+						
+						<td width="190" align="right" valign="top"></td>
+						<td width="170" align="left"><a href="http://www.parkerlexus.com"><img src="/media/sponsor_images/parker_logo.jpg" border="0" padding="5" alt="Parker Lexus"></a></td>
+						<td width="130" align="left"><img src="/media/sponsor_images/stella.png" border="0" alt="Stella Boyle Smith Trust"></td>
+						<td width="170" align="left"><a href="http://www.littlerock.com"><img src="/static/images/sponsors/LRCVB_scaled.jpg" border="0"/></a></td>	
+					</tr>
+					</table>
+				<br><br>
+				<b>Arkansas Symphony Orchestra</b>&nbsp;&nbsp;&nbsp;&nbsp;(501) 666-1761&nbsp;&nbsp;&nbsp;&nbsp;P.O. Box 7328&nbsp;&nbsp;&nbsp;&nbsp;Little Rock, AR 72217
+				
+			</div>
+			
+			<br><br><br>
+			
+			
+		</div>
+	{% block wookmark %}
+
+	{% endblock %}
+	
+	</body>
+	
+</html>

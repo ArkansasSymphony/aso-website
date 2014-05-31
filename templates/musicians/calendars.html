@@ -1,0 +1,33 @@
+
+	{% extends "musicians/musicians.html" %}
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+		{% block musician-content %}
+			<div id="mus-title">Calendars</div><br/><br/>
+			<a href="http://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=master.calendar%40arkansassymphony.org&ctz=America/Chicago">
+				Orchestra Master Calendar (Google Calendar)</a><br/>
+			 
+			<a href="https://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=arkansassymphony.org_o21a1min8nfvetrqg2j31gdk50%40group.calendar.google.com&ctz=America/Chicago&pvttk=5edffb1350f884bea07583447fce7e5c">
+				Byrne Hall Calendar (Google Calendar)</a><br/>
+					
+			<a href="http://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=arkansassymphony.org_vskn6ucm99nv7tj8t8ak4k04lg%40group.calendar.google.com&ctz=America/Chicago">
+				ASO Quartets Calendar (Google Calendar)</a></li><br/>
+				
+			<a href="http://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=van.calendar%40arkansassymphony.org&ctz=America/Chicago">
+				Van Calendar (Google Calendar)</a></li><br/><br/>
+			
+			<div id="mus-title">Reservation Forms</div><br/>
+				<a href="/musicians/forms/van-request/" class="style1">Orchestra Van Reservation Request</a><br/>
+				<a href="/musicians/forms/byrne-request/" class="style1">Byrne Hall Reservation Request</a>
+
+	{% endblock %}
+	
+	{% block link-back %}
+		<br/><br/>
+		<a href="/musicians/">Musician Home</a>
+	{% endblock %}
+	

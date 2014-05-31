@@ -1,0 +1,43 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+	
+	<div id="mus-title">
+		Form submitted<br/><br/>
+	</div>
+	<div id="claim-data">
+		<i>Please keep this claim data for your records</i><br/><br/>
+		<b>Name:</b> {{  name  }}<br/>
+		<b>Service:</b> {{  service  }}<br/>
+		{% if mileage_paid == 0 %}
+		{% else %}
+			<b>Mileage:</b> {{  mileage_miles  }} miles, ${{  mileage_paid  }}<br/>
+		{% endif %}
+		
+		{% if doubling_paid == 0 %}
+		{% else %}
+			<b>Doubling claim:</b> ${{  doubling_paid  }}<br/>
+		{% endif %}
+		
+		{% if cartage_paid == 0 %}
+		{% else %}
+			<b>Cartage claim:</b> ${{  cartage_paid  }}<br/>
+		{% endif %}
+		{% if diem_paid == 0 %}
+		{% else %}
+			<b>Per diem claim:</b> ${{  diem_paid  }}<br/>
+		{% endif %}
+		<b>Claim total:</b> ${{  claim_total  }}
+		<br/>
+		<br/>
+		
+		
+	</div>
+	<br/><br/><br/>
+	<div id="confirmation">
+		<a href="/musicians/forms/service-claim/"><button class="button">New claim</button></a>
+		<a href="/musicians/musician-forms/"><button class="button">Return to forms</button></a>
+		<a href="/musicians/forms/comp-tickets/"><button class="button">Request Comp Tickets</button></a>
+	</div>
+	
+	{% endblock %}

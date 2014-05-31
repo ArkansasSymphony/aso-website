@@ -1,0 +1,59 @@
+{% extends "about/about_base.html" %}
+
+{% block title_detail %}
+	Job Opportunities
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<div style="font-size: 24px; margin-bottom: 5px;">Job Opportunities</div><br><br>
+			
+			<div style="font-size: 18px; color: #2d9bfd;">
+				Orchestra Auditions
+			</div>	
+			<br>
+			
+			{% if orchList.all %}
+			
+				 {% for job in orchList %}
+
+                                        <a href="/about/jobs/{{ job.url_name }}" class="medblue">{{ job.title }}</a><br>
+
+                                {% endfor %}
+
+			{% else %}
+				No openings at this time.
+			{% endif %}
+
+			<br><br><br><br>
+			
+			
+			<div style="font-size: 18px; color: #2d9bfd;">
+				Administration
+			</div>	
+			<br>
+
+			{% if adminList.all %}
+				
+				{% for job in adminList %}
+
+					<a href="/about/jobs/{{ job.url_name }}" class="medblue">{{ job.title }}</a><br>
+
+				{% endfor %}
+
+			{% else %}
+				No openings at this time.
+			{% endif %}
+
+
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

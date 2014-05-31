@@ -1,0 +1,38 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	RSVP Received
+{% endblock %}
+	
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<h1>Thank you for your RSVP!</h1>
+			<br/>
+			<br/>
+			Your RSVP was received as follows:<br/>
+			<br/>	
+			{{  name  }}<br/>
+			{{  address  }}<br/>
+			{{  city  }}, {{  state  }} {{  zip  }}<br/>
+			{{  phone  }}<br/>
+			<br/>
+			<b>Number of people attending: {{  quantity  }}</b><br/>
+			Email: {{  email  }}<br/>
+			Special notes: {{  notes  }}<br/>
+			<br/>
+			If the number of people attending the concert changes, or if you have any questions, please contact:<br/>
+			<br/>
+			Cody Waits<br/>
+			<a href="mailto:cwaits@arkansassymphony.org">cwaits@arkansassymphony.org</a><br/>
+			501.666.1761, ext. 100
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

@@ -1,0 +1,46 @@
+{% extends "themusic/themusic_base.html" %}
+
+{% block title_detail %}
+	Welcome Philip!
+{% endblock %}
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			<div style="font-size: 24px; margin-bottom: 5px;">Leave your own Message</div><br><br>
+			
+			<div id="welcome">
+					
+				<form action="/welcome/comment/" method="post">
+					<label for="id_name">Name:</label>&nbsp;&nbsp;<font color="#ff0000">{{ form.name.errors }}</font><br>
+				        {{ form.name }}
+					<br><br>
+                                        <label for="id_name">Message:</label>&nbsp;&nbsp;<font color="#ff0000">{{ form.message.errors }}</font><br>
+                                        {{ form.message }}
+
+					<br><br>
+						
+
+					<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LeXfr0SAAAAAKI1_SX-0JLqBI5X1xopLyW8HtV0{{ captcha_error }}"></script>
+					
+					<noscript>
+						<iframe src="http://www.google.com/recaptcha/api/noscript?k=6LeXfr0SAAAAAKI1_SX-0JLqBI5X1xopLyW8HtV0{{ captcha_error }}" height="300" width="500" 
+frameborder="0"></iframe><br>
+						<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+						<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+					</noscript>
+					<br>
+
+					<p><input type="submit" value="Leave Message" /></p>
+				</form>
+			</div>
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

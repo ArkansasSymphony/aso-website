@@ -1,0 +1,31 @@
+
+	{% extends "musicians/musicians.html" %}
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	
+			{% block musician-content %}
+			
+				<div id="mus-title">
+					Bus Information {{  current_season  }}
+				</div>
+				<br/>
+				<div id="concert-page">
+					{% if bus_list %}
+						{% for concert in bus_list %}
+							<a href="/musicians/bus-info/{{  concert.url_name  }}/"><i>{{  concert.name  }}</i></a><br/>  
+						{% endfor %}
+					{% else %}
+					<i>No bus information available yet.  Please check back later or <a href="mailto:drenfro@arkansassymphony.org">email</a> if you have any questions.</i>
+					{% endif %}
+				</div>
+				
+			{% endblock %}
+			{% block link-back %}
+			<br/>
+				<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}

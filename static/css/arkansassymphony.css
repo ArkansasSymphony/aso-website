@@ -1,0 +1,112 @@
+a.blue:link,
+a.blue:active,
+a.blue:visited
+{
+	color: #2d9bfd;
+	text-decoration: none;
+}
+
+a.blue:hover
+{
+	text-decoration: underline;
+}
+
+.container {
+	background-color: #ffffff;
+	padding: 0 20px 0 20px;
+}
+
+body {
+	background-color: #000000;
+}
+
+.votingrow {
+	background-color: #fffff;
+	padding: 5px 0 5px 0;
+}
+
+
+.spacer {
+	height: 30px;
+}
+
+.navselected {
+	background-color: #d9eafb;
+}
+
+/* Main Navigation Elements */
+ul.topnav
+{  
+    list-style: none;  
+    padding: 0 0;
+    margin: 0;  
+    float: left;  
+}
+
+	
+ul.topnav li
+{  
+    float: left;  
+    position: relative; /*--Declare X and Y axis base for sub navigation--*/
+} 
+ 
+ul.topnav li a
+{  
+    color: #1b5381;  
+    display: block;  
+    text-decoration: none;  
+	font-size: 12px;
+    float: left;  
+}  
+
+ul.topnav li span { /*--Drop down trigger styles--*/   
+    float: left; 
+	height: 58px;
+	display: inline;
+}  
+
+html ul.topnav li a:hover 
+{ 
+    //background: #d9eafb;  
+}  
+
+ul.topnav li span.subhover 
+{
+	background-position: center bottom; cursor: pointer;
+} 
+
+ul.topnav li ul.subnav 
+{  
+    list-style: none;  
+    position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/  
+    left: 0; top: 58px;  
+    background: #d9eafb; 
+    margin: 0; padding: 0;  
+    display: none;  
+    float: left;  
+    width: 199px;  
+    border-top: 8px solid #1b5381;
+	z-index: 100;
+
+}  
+
+ul.topnav li ul.subnav li
+{  
+    margin: 0; padding: 0;  
+    clear: both;  
+    width: 199px;  
+}  
+
+html ul.topnav li ul.subnav li a 
+{  
+    float: left;  
+    width: 184px;  
+    background: #d9eafb;  
+    padding: 7px 0 7px 15px; 
+}  
+
+html ul.topnav li ul.subnav li a:hover 
+{ 
+    background: #9fcdfd;  
+}  
+

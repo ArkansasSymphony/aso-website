@@ -1,0 +1,43 @@
+{% extends "support/support_base.html" %}
+
+{% block title_detail %}
+	Donation Processed
+{% endblock %}
+	
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<h1>Thank you for your support!</h1>
+			<br/>
+			<br/>
+			Thank you for your generous gift to the Arkansas Symphony Orchestra.  The ASO Development Office 
+			will be in contact soon to thank you personally.  Please note that your contribution is 
+			tax-deductible as allowed by law; we will send you a receipt for your records.<br/>
+			<br/>
+			Your donation was processed as follows:<br/>
+			<br/>	
+			{{  name  }}<br/>
+			{{  address  }}<br/>
+			{{  city  }}, {{  state  }} {{  zip  }}<br/>
+			{{  phone  }}<br/>
+			<br/>
+			Gift amount: ${{  donation  }}<br/>
+			Anonymous: {{  anonymous  }}<br/>
+			Email: {{  email  }}<br/>
+			Special notes: {{  notes  }}<br/>
+			<br/>
+			If you have any questions please contact:<br/>
+			<br/>
+			Austin Hall<br/>
+			<a href="mailto:ahall@arkansassymphony.org">ahall@arkansassymphony.org</a><br/>
+			501.666.1761, ext. 112
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

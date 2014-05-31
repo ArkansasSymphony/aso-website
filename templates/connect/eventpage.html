@@ -1,0 +1,69 @@
+{% extends "connect/connect_base.html" %}
+
+{% block title_detail %}
+	Encore: {{ show.name }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+
+			<div id="welcome">
+			<div style="font-size: 24px; margin-bottom: 5px;">Encore: {{ show.name }}</div><br><br>
+			
+			<div style="font-size: 18px; color: #2d9bfd;">Photos</div>
+			<div style="text-align: right">
+                                        <a href="/connect/photos/upload/{{gallery.id}}/" class="medBlue">Upload a Photo</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/connect/photos/{{ gallery.id }}/?start=0" 
+class="medBlue">More Photos</a>
+                        </div>
+
+
+			<br><br>
+				<div id="thumbnail-box">			
+				<ul id="thumbnails">
+
+				{% for photo in photoList %}
+ 
+					<li> 
+				 	 <div class="small-image-box"> 
+				   	 <a href="/connect/photos/detail/{{ photo.id }}/"><img src="{{ photo.thumburl }}" alt="{{ photo.title }}" /></a> 
+				  	</div> 
+					</li>
+                  
+				{% endfor %}
+ 
+				</ul>
+				</div> 
+				<br><br>				
+		
+
+			<br><br><br>
+			
+			<div style="font-size: 18px; color: #2d9bfd;">What People are Saying</div>
+                       			<div style="text-align: right"><a href="/connect/event/{{ show.url_name }}/comment/" class="medBlue">Leave a Message</a>&nbsp;&nbsp;&nbsp;&nbsp;<a 
+href="/connect/event/{{ show.url_name }}/viewcomments/" class="medBlue">More Messages</a></div>
+			<br><br>
+
+			 <table width="600" cellpadding="0" cellspacing="0" border="0">
+                                {% for comment in commentList %}
+                                        <tr>
+                                                <td width="600"><font color="#cc6600">{{ comment.name }}</font>
+                                                {{ comment.message|linebreaks }}</td>
+                                        </tr>
+                                {% endfor %}
+
+                        </table>
+
+
+
+			</div>
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

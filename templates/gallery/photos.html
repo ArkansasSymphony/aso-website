@@ -1,0 +1,57 @@
+
+{% extends "gallery/gallery_base.html" %}
+{% block title_detail %}Photo Galleries{% endblock %}
+
+{% block post_nav %}
+	<td width="700" valign="top">
+	<div id="content">
+		<div class="title-heading">ASO Galleries</div>
+		<div id="main_gallery" role="main">
+		{% if gallery_list %}
+			<ul id="tiles">
+				{% for gallery in gallery_list %}
+					<div class="thumbnail">
+					<li><p>{{  gallery.name  }}</p><a href="/connect/media/galleries/{{  gallery.url_name  }}/"><img src="{{  gallery.cover_photo.url_250x250  }}"></a></li>
+					</div>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		</div>
+	</div>
+	</table>
+	</td>
+{% endblock %}
+
+	{% block wookmark %}
+	<!--  Wookmark -- code to make pinterest style layout  -->	
+
+		  <!-- include jQuery -->
+		  <script src="{{  STATIC_URL  }}js/jquery-1.7.2.js"></script>
+		  
+		  <!-- Include the imagesLoaded plug-in -->
+		  <script src="{{  STATIC_URL  }}js/jquery.imagesloaded.js"></script>
+		  
+		  <!-- Include the plug-in -->
+		  <script src="{{  STATIC_URL  }}js/jquery.wookmark.js"></script>
+		  
+		  <!-- Once the page is loaded, initalize the plug-in. -->
+		  <script type="text/javascript">
+			$('#tiles').imagesLoaded(function() {
+			  // Prepare layout options.
+			  var options = {
+				autoResize: true, // This will auto-update the layout when the browser window is resized.
+				container: $('#main_gallery'), // Optional, used for some extra CSS styling
+				offset: 5, // Optional, the distance between grid items
+				itemWidth: 250 // Optional, the width of a grid item
+			  };
+			  
+			  // Get a reference to your grid items.
+			  var handler = $('#tiles li');
+			  
+			  // Call the layout function.
+			  handler.wookmark(options);
+			});
+		  </script>
+
+		<!--  End wookmark layout handling  -->
+	{% endblock %}

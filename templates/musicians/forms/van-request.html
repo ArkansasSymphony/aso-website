@@ -1,0 +1,52 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+		<div id="mus-title">
+			ASO Van Request Form
+		</div>
+		<br/>
+	
+		<form action="" method="post">{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="fieldWrapper">
+				{{ form.name.errors }}
+				<label for="id_name">Your name:</label>
+				{{ form.name }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.email.errors }}
+				<label for="id_email">Your email address:</label>
+				{{ form.email }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.date.errors }}
+				<label for="id_date">Request Date(<i>MM/DD/YYYY</i>):</label>
+				{{ form.date }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.start_time.errors }}
+				<label for="id_start_time">Start time(24hr):</label>
+				{{ form.start_time }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.end_time.errors }}
+				<label for="end_time">End time(24hr):</label>
+				{{ form.end_time }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.use.errors }}
+				<label for="id_use">What will the van be used for?:</label>
+				{{ form.use }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.multi.errors }}
+				<label for="id_multi">For multiple requests/times, please list:</label>
+				{{ form.multi }}
+			</div>
+			<p><input type="submit" value="Submit request" /></p>
+		</form>
+		
+		<p><i>This is a request only.  You will receive a confirmation of your request immediately.
+		A confirmation email will be sent when your reservation is completed.</i></p>
+		
+	{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "newbase.html" %}
+
+{% load voting_extras %}
+
+{% block title_detail %}
+	People's Choice
+{% endblock %}
+
+
+
+{% block main %}
+	<div class="spacer"></div>
+		
+	<div class="row">
+		<div class="span16">
+
+			<div class="hero-unit" style="background-color: #ffffff;">
+				<div class="row">
+					<div class="span10">	
+						<h1>People's Choice</h1>
+						
+						{% if uams == 1 %}
+						<p>Order your tickets today at the special UAMS price of only $10!<br> Use the code 8267 when you order online or over the phone.</p>
+						{% else %}
+						<p>Order your tickets today at the special price of only $19!<br> Use the code VOTE when you order online or over the phone.</p>
+						{% endif %}
+						<p>
+							<a class="btn primary large" href="/concerts/peoples-choice">Order Tickets &raquo;</a>
+						</p>
+					</div>
+					<div class="span4">
+						<br><br>
+						<center>sponsored by<br>
+						<a href="http://www.uams.edu"><img src="http://www.arkansassymphony.org/media/sponsor_images/uams.jpg" border="0" alt="UAMS" width="100" height="56"></a></center>
+					</div>
+				</div>
+			</div>
+		</div>
+					
+			
+	</div>
+	
+	<div class="row">
+		<div class="span7 offset1">
+			<h2>Thank you for casting your vote!</h2>
+			<p>Remember, you can vote once each day.</p>
+		</div>
+		
+		<div class="span8">
+			<img src="http://www.arkansassymphony.org/media/show_images/p4big.jpg">
+		</div>
+	</div>
+	
+
+{% endblock %}
+

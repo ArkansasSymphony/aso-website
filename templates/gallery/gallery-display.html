@@ -1,0 +1,51 @@
+{% extends "gallery/gallery_base.html" %}
+{% block title_detail %}{{  gallery_object.name  }}{% endblock %}
+
+{% block headerScripts %}
+	<link rel="stylesheet" type="text/css" href="{{  STATIC_URL  }}css/shadowbox.css">
+	<script type="text/javascript" src="{{  STATIC_URL  }}js/shadowbox.js"></script>
+	<script type="text/javascript">
+	Shadowbox.init({
+		counterType:	"skip",
+		continuous:	"true",
+	});
+	</script>		
+{% endblock %}
+
+{% block post_nav %}
+	<td width="700" valign="top">
+	<div id="content">	
+		<table width="650">	
+		<br/><br/>
+		<td width="225" valign="top">					
+		<h3 style="font-family:Georgia;color:#000">{{  gallery_object.name  }}</h3>
+		<div class="gallerycontainer">
+			{% if photos_list %}
+				{% for item in photos_list %}
+					<a class="thumbnail" href="{{  MEDIA_URL  }}{{  item.photo  }}" rel="shadowbox[gallery]" title="{{  item.short_desc  }}"><img src="{{  item.photo.url_100x100  }}"/>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		</td>		
+		<td width="275" valign="top">
+			<br/><br/><br/><br/>
+				<div style="text-align:right">
+					{{  gallery_object.date  }}<br/>
+					<a href="{{  gallery_object.conductor_link  }}">{{  gallery_object.conductor  }}, conductor</a><br/>
+					{% for artist in gallery_object.artists.all  %}
+						{{  artist  }}<br/><br/><br/><br/>
+					{% endfor %}
+				</div>
+				{{  gallery_object.description  }}<br/><br/>  If you have 
+				great photos you would like to share, please email Brandon at <a href="mailto:bdorris@arkansassymphony.org">bdorris@arkansassymphony.org</a>.
+			<br/><br/>
+			<a href="/connect/media/photo"><h4 style="font-family:Georgia">Back to galleries</h4></a>
+		
+		</td>
+		</table>
+	</div>
+		</table>
+	</td>
+	
+{% endblock %}

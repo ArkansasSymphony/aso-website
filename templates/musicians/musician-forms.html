@@ -1,0 +1,21 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+		
+	{% endblock %}
+			
+	{% block musician-content %}
+	
+		<div id="mus-title">Musician Forms</div><br/><br/>
+		<a href="/musicians/forms/service-claim/">Service Claim Form</a><br/>
+		<a href="/musicians/forms/comp-tickets/">Musician Comp Ticket Request Form</a><br/>
+		<a href="/musicians/forms/hotel-request/">Hotel Request Form</a><br/>
+		<a href="/musicians/bus-info/">Bus Schedules/Forms</a>
+	{% endblock %}
+	{% block link-back %}
+	<br/>
+		<a href="/musicians/">Musician Home</a>
+	
+	{% endblock %}

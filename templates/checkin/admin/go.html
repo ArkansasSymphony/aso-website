@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Stripe Process{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+	<h1>Information submitted to Stripe servers</h1>
+	<ul>
+		<li>{{  id_process.full_name  }}<br/><br/>
+		Update successful</li>
+	</ul>
+	<br/>
+	<br/>
+	<h4><a href="/admin/checkin/patron/{{  id_process.id  }}/">Click here to go back to {{  id_process.full_name  }}.</a><br/>
+	<br/>
+	<a href="/admin/checkin/patron/">Click here to go to the patron list</a></h4>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	{% block musician-content %}
+	
+	<div id="mus-title">
+		Performance Information
+	</div><br/><br/>
+		<a href="/musicians/concert-info/">Concert Information</a><br/>
+		<a href="/musicians/venues/">Venues and Directions</a><br/>
+		<a href="/musicians/bus-info/">Bus Schedules</a><br/>
+	
+	{% endblock %}
+	{% block link-back %}
+	<br/>
+		<a href="/musicians/">Musician Home</a>
+	
+	{% endblock %}

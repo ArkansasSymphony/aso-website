@@ -1,0 +1,84 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	Youth Rock - RSVP
+{% endblock %}
+
+{% block headerScripts %}
+
+
+{% endblock %}
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<h2>RSVP: Young Person's Guide to the Orchestra</h2>
+			<br/><br/>
+			<p>Thank you for your interest in <em>The Young Person's Guide to the Orchestra</em> at Roosevelt Thompson 
+			Auditorium at Central High School! Please fill out the form below to let us know how many people will be 
+			attending this free performance.</p><br/><br/>
+			<form action="" method="POST">{% csrf_token %}
+				{{ form.non_field_errors }}
+				
+				<div class="fieldWrapper">
+					{{ form.name.errors }}
+					<label for="id_name">Name:  </label>
+					{{ form.name }}
+				</div>
+				<br/>
+				<div class="fieldWrapper">
+					{{ form.email.errors }}
+					<label for="id_email">Email:  </label>
+					{{ form.email }}
+				</div>
+				<div class="fieldWrapper">
+					{{ form.phone.errors }}
+					<label for="id_phone">Phone:  </label>
+					{{ form.phone }}
+				</div>
+				<div class="fieldWrapper">
+					{{ form.address.errors }}
+					<label for="id_address">Address:  </label>
+					{{ form.address }}
+				</div>
+				<div class="fieldWrapper">
+					{{ form.city.errors }}
+					<label for="id_city">City:  </label>
+					{{ form.city }}
+				</div>
+				<div class="fieldWrapper">
+					{{ form.state.errors }}
+					<label for="id_state">State:  </label>
+					{{ form.state }}
+				</div>
+				<div class="fieldWrapper">
+					{{ form.zip.errors }}
+					<label for="id_zip">ZIP Code: </label>
+					{{ form.zip }}
+				</div>
+				<br/><br/>
+				<div class="fieldWrapper">
+					{{ form.quantity.errors }}
+					<label for="id_quantity">How many people will attend?</label>
+					{{ form.quantity }}
+				</div>
+				<br/><br/>
+				<div class="fieldWrapper">
+					{{ form.notes.errors }}
+					<label for="id_notes">Please enter any special requests, such as accessible seating needs, etc., here:  </label>
+					{{ form.notes }}
+				</div>
+				<br/>
+				<br/>
+				<p><input type="submit" value="Submit request" /></p>
+			</form>
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

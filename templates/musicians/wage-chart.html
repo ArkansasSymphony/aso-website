@@ -1,0 +1,169 @@
+
+	{% extends "musicians/musicians.html" %}
+
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+
+			{% block musician-content %}
+				<div id="mus-title">
+					Wage Chart
+				</div>
+				<br/>
+				
+				<div class="wage">
+					<table cellpadding cellpadding="0" cellspacing="5">
+					<tr>
+						<td>Season</td>
+						{% for i in wage_list_current %}
+						<td><span></span>{{  i.fiscal_year  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Section</th>
+					</tr>
+					<tr>
+						<td>Rehearsal</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.section_rehearsal  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Concert</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.section_performance  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Principal</th>
+					</tr>
+					<tr>
+						<td>Rehearsal</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.principal_rehearsal  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Concert</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.principal_performance  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Mileage</th>
+					</tr>
+					<tr>
+						<td>Per Mile</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.mileage  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Doubling</th>
+					</tr>
+					<tr>
+						<td>Per instance</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.doubling  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Meals</th>
+					</tr>
+					<tr>
+						<td>Breakfast</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.breakfast  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Lunch</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.lunch  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Dinner</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.dinner  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Travel Pay</th>
+					</tr>
+					<tr>
+						<td>&lt; 115 miles</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.travel_short  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>&gt; 115 miles</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.travel_long  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Double Services</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.double_service  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Weekend Per Diem</th>
+					</tr>
+					<tr>
+						<td>Single Perf</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.per_diem_single  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Double Perf</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.per_diem_double  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">ASO-Produced Ensembles</th>
+					</tr>
+					<tr>
+						<td>Minimum flat fee<br/>
+						<i>musicians may negotiate a higher fee</i></td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.aso_ensembles  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<th id="heading" colspan="6">Cartage</th>
+					</tr>
+					<tr>
+						<td>Per Trip for instr listed in MA</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.standard_cartage  }}</td>
+						{% endfor %}
+					</tr>
+					<tr/>
+						<td>Marimba</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.marimba_cartage  }}</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						<td>Vibes</td>
+						{% for i in wage_list_current %}
+						<td><span>$</span>{{  i.vibes_cartage  }}</td>
+						{% endfor %}
+					</tr>
+					</table>
+				</div>
+				
+			{% endblock %}
+	
+			{% block link-back %}
+			<br/>
+				<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}

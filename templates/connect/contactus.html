@@ -1,0 +1,96 @@
+{% extends "connect/connect_base.html" %}
+
+{% block title_detail %}
+	Contact Us
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br>
+			<div style="font-size: 24px; margin-bottom: 5px;">Contact Us</div><br><br>
+			
+			<div style="font-size: 18px; color: #2d9bfd;">
+				By Phone
+			</div>	
+			<br>
+			call: (501) 666-1761
+			<br><br><br><br>
+			
+			
+			<div style="font-size: 18px; color: #2d9bfd;">
+				In Person
+			</div>	
+			<br>
+			2417 North Tyler Street<br>
+			Little Rock, AR 72207
+			<br><br><br><br>
+			
+			
+			<div style="font-size: 18px; color: #2d9bfd;">
+				By Mail
+			</div>	
+			<br>
+			P.O. Box 7328<br>
+			Little Rock, AR 72217
+<br/><br/><br/>
+			<div id="staff">
+		
+		<!--Staff Members------------------------------------------------------------------------------>
+		
+			<h3><i>Staff</i></h3>
+			{% if staff_list %}
+				<b>Artistic</b><br/><br/>
+				{% for person in staff_list %}
+					{% if person.department == "artistic" %}
+						<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+						{{  person.title  }}<br/>
+						{{  person.phone  }}<br/>
+					{% endif %}
+				{% endfor %}
+				
+				<b>Administration</b><br/><br/>
+				{% for person in staff_list %}
+					{% if person.department == "administration" %}
+						<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+						{{  person.title  }}<br/>
+						{{  person.phone  }}<br/><br/>
+					{% endif %}
+				{% endfor %}
+				
+				<b>Development and Marketing</b><br/><br/>
+				{% for person in staff_list %}
+					{% if person.department == "development/marketing" %}
+						<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+						{{  person.title  }}<br/>
+						{{  person.phone  }}<br/><br/>
+					{% endif %}
+				{% endfor %}
+				
+				<b>Education and Outreach</b><br/><br/>
+				{% for person in staff_list %}
+					{% if person.department == "education" %}
+						<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+						{{  person.title  }}<br/>
+						{{  person.phone  }}<br/><br/>
+					{% endif %}
+				{% endfor %}
+				
+				<b>Operations</b><br/><br/>
+				{% for person in staff_list %}
+					{% if person.department == "operations" %}
+						<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+						{{  person.title  }}<br/>
+						{{  person.phone  }}<br/><br/>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+
+		
+
+	</td>
+
+			
+{% endblock %}	

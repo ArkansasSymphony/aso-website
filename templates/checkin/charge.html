@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>Charges</title>
+</head>
+<body>
+	<h1>Enter Charge Data</h1>
+		<!--<form action="" method="post">{% csrf_token %}
+			{{  form.as_ul  }}
+			<p><input type="submit" value="Submit request" /></p>
+		</form>-->
+		
+		<form action="" method="post">{% csrf_token %}
+		{{ form.non_field_errors }}
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.description.errors }}
+				<label for="id_description">Charge description</label>
+				{{ form.description }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.item_number.errors }}
+				<label for="id_item_number">Item number</label>
+				{{ form.item_number }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.price.errors }}
+				<label for="id_price">Charge price</label>
+				{{ form.price }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.payment_method.errors }}
+				<label for="id_payment_method">Payment Method</label>
+				{{ form.payment_method }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.customer.errors }}
+				<label for="id_customer">Customer</label>
+				{{ form.customer }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.notes.errors }}
+				<label for="id_notes">Notes</label>
+				{{ form.notes }}
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="twelve columns">
+			<br/>
+			<p><input type="submit" value="Submit Charge" /></p>
+			</div>
+		</div>
+		
+		</form>
+ 
+</body>
+</html>

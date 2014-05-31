@@ -1,0 +1,98 @@
+
+	{% extends "musicians/musicians.html" %}
+	
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	
+			{% block musician-content %}
+			
+				<div id="mus-title">
+					Concert Information
+				</div>
+				<br/>
+				<h5>{{  concert_object.name  }}</h5><br/>
+				{{  concert_object.long_date  }}<br/>
+				{{  concert_object.long_time  }}
+				<hr/>
+				
+				{% if document_list %}
+				<b>Documents</b><br/>
+				{% for document in document_list %}
+				<a href="{{  MEDIA_URL  }}{{ document.file  }}">{{  document.name  }}</a><br/>
+				{% endfor %}
+				<hr/>
+				{% endif %}
+				<b>Conductor</b><br/>
+				{{  concert_object.conductor  }}
+				<hr/>
+				
+				{% if service_list %}
+				<b>Schedule</b>
+				{% for service in service_list %}
+					<div class="row">
+						<div class="three columns">
+							{{  service.date  }}
+						</div>
+						<div class="three columns">
+							{% if service.display_time == None %}
+								{{  service.time  }}
+							{% else %}
+								{{ service.display_time  }}
+							{% endif %}
+						</div>
+						<div class="three columns">
+							{{  service.service_type  }}
+						</div>
+						<div class="three columns">
+							<a href="/musicians/venues/{{  service.venue.url_name  }}/">{{  service.venue  }}</a>
+						</div>
+					</div>
+				{% if service.service_note == None %}
+				{% else %}
+					<div class="row">
+						<div class="three columns">
+						</div>
+						<div class="nine columns">
+							<div id="small_note_text"><i>{{  service.service_note  }}</i></div>
+							<br/>
+						</div>
+					</div>
+				{% endif %}
+				{% endfor %}
+				<hr/>
+				{% endif %}
+					
+				{% if pieceList %}
+				<b>Program</b>
+					{% for item in pieceList %}
+						<div class="row">
+							{% if item.composer == 'INTERMISSION' %}
+							<div class="twelve columns">
+								<i>{{  item.composer  }}<br/></i>
+							</div>
+							{% else %}
+								<div class="three columns">
+									{{  item.composer  }}
+								</div>
+								<div class="five columns">
+									{{  item.title  }}
+								</div>
+								<div class="four columns.right">
+									{{  item.instrumentation  }}
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
+				<hr/>
+				{% endif %}
+				
+			{% endblock %}
+			{% block link-back %}
+			<br/>
+				<a href="/musicians/concert-info/">Back to Concert Listing</a><br/>
+				<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}

@@ -1,0 +1,133 @@
+
+	{% extends "musicians/musicians.html" %}
+
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+		
+			{% block musician-content %}
+			
+				<br/>
+				
+				<div id="mus-title">FAQs</div><br/>
+				<strong><a href="#q1">What is the ASO's dress code?</a></strong><br/>
+				<strong><a href="#q2">Where does the ASO perform?</a></strong><br/>
+				<strong><a href="#q3">What does the ASO pay?</a></strong><br/>
+				<strong><a href="#q4">When do I get paid?</a></strong><br/>
+				<strong><a href="#q5">How do I get my music?</a></strong><br/>
+				<strong><a href="#q6">Will the ASO reimburse my mileage?</a></strong><br/>
+				<strong><a href="#q7">Will the ASO put me up in a hotel?</a></strong><br/>
+
+				<hr/><a name="q1"></a>
+				<strong>What is the ASO's dress code?</strong><br/>	<br/>
+				The dress for the ASO varies depending upon the following types of concerts:<br/><br/>
+					(a) <u>Masterworks:</u><br/>
+				<ul>
+					Men: Formal white tie consisting of a black tails jacket, black tuxedo pants, white dress shirt, 
+					white vest or vest front or white cummerbund, white tie, black dress shoes, and full calf-length 
+					black socks.<br/><br/>
+					Women: Black ankle-length to floor-length dress; or black dress blouse with ankle-length to 
+					floor-length black skirt or with black dress pants; black dress shoes with black hosiery. White 
+					dress blouses may be worn under black dress jackets. No leggings, stirrup pants, tights, jeans, 
+					or casual pants may be worn.<br/>
+				</ul>
+					(b) <u>Pops, evening runout, and special concerts:</u><br/>
+				<ul>
+					Men: Black tuxedo pants and jacket, solid white tuxedo shirt, black bow tie, black dress shoes, 
+					and full calf-length black socks. Black cummerbund or black vest may also be worn.<br/>	<br/>
+					Women: Black ankle-length to floor-length dress; or black dress blouse with ankle-length to 
+					floor-length black skirt or with black dress pants; black dress shoes with black hosiery. White 
+					dress blouses may be worn under black dress jackets. No leggings, stirrup pants, tights, jeans, 
+					or casual pants may be worn.<br/>
+				</ul>
+					(c) <u>Family, Children's, and Daytime Runout Concerts:</u><br/>
+				<ul>
+					Men: Black or very dark suit consisting of matching suit pants and suit jacket; solid colored dress 
+					or business-style shirt with long tie; black dress shoes with matching full calf-length socks.<br/><br/>
+					Women: Black street-length (covering the knees when standing and sitting) or longer dress; or black 
+					dress blouse with black street-length or longer skirt or black dress pants; black dress shoes with 
+					black hosiery. White dress blouse may be worn under black dress jacket.<br/>
+				</ul>
+					(d) <u>Outdoor Concerts:</u><br/>
+				<ul>
+					Men: White dress or business-style shirt, either long or short sleeve; black or dark dress pants, no 
+					ties; black dress shoes with full calf-length black socks. Musicians shall have available black or 
+					dark dress jackets and long ties in the case of cold or cool weather.<br/><br/>
+					Women: White dress or business-style blouse; black dress skirt or black dress pants; black dress 
+					shoes with black hosiery. Musicians shall have available black dress jackets or black dress sweaters 
+					in the case of cold or cool weather.<br/>
+				</ul>
+					(e) <u>Other Concerts:</u><br/>
+				<ul>
+					For performances not listed here, the Society shall notify the musicians of the required dress at the 
+					time they are hired for that performance. On occasion the Orchestra may be requested by the Society to 
+					deviate from the standard dress as described above. In such cases, the Society shall request such clothing 
+					as may be part of the musicians' regular wardrobe. No rental or purchase of clothing by the musician shall 
+					be required for such special request. Musicians may, if they desire, wear the required dress appropriate 
+					to the concert as listed above.<br/>
+				</ul>
+					(f) Alternate attire, including informal attire, may be adopted upon agreement between the Association and the Society. Musicians shall be given specific guidelines for permissible alternate attire.<br/>
+				<br/>
+				
+				<hr/><a name="q2"></a>
+				<strong>Where does the ASO perform?</strong><br/><br/>
+				The ASO performs all of its Masterworks and Pops subscription concerts at the <a href="/musicians/venues/robinson-center/">
+				Robinson Center Music Hall</a> in Little Rock, AR.  The ASO also performs at other venues across the state.  
+				For each series, a gig sheet will be emailed to all involved musicians that will list what the venue is for 
+				that particular series.  A list of all venues that the ASO uses, along with maps and driving directions, can 
+				be found on the <a href="/musicians/venues/">Maps & Directions</a> page.<br/><br/>
+				
+				<hr/><a name="q3"></a>
+				<strong>What does the ASO pay?</strong><br/><br/>
+				The current pay for Per-Service Contract Musicians and Substitute Musicians is the following:<br/><br/>
+				Section Rehearsal: $67.81<br/>
+				Section Performance: $86.59<br/>
+				Principal Rehearsal: $88.03<br/>
+				Principal Performance: $109.51<br/><br/>
+				A complete listing of the current pay scale for the ASO can be found on the <a href="/musicians/wage-chart/">Wage Chart</a> page.<br/><br/>
+				
+				<hr/><a name="q4"></a>
+				<strong>When do I get paid?</strong><br/><br/>
+				Per-Service musicians (Per-Service Contracted or Substitute Musicians) shall be paid monthly with the payroll 
+				period ending on the 25th day of each month. Direct deposit via electronic funds transfer (if set up) or 
+				checks shall be released on the last day of each month or on the preceding business day if the last day of 
+				the month falls on a Saturday, Sunday, or holiday. All <a href="/musicians/forms/service-claim/">Service Claim Forms</a> 
+				are due on the 20th day of each month. <a href="/musicians/forms/service-claim/">Service Claim Forms</a> are 
+				used to report mileage, per-diem, doubling, cartage, and other reimbursements to be paid to the musician 
+				during that pay period.<br/><br/>
+				All Salaried Musicians (Full-Time, 100-Service, or Staff Musicians) shall be paid twice monthly on the 
+				15th and last day of each month via electronic funds transfer, or on the preceding business day if the 
+				15th or last day of the month falls on a Saturday, Sunday, or holiday.<br/><br/>
+				
+				<hr/><a name="q5"></a>
+				<strong>How do I get my music?</strong><br/><br/>
+				Whenever possible, all music scheduled for performance shall be made available to the musicians no later 
+				than two (2) weeks prior to rehearsal of that music. Music shall be delivered either in person or by mail, 
+				or made available either at the Society's offices or at scheduled orchestra services. Musicians living 
+				within Pulaski County are expected, when possible, to get their music themselves. If a musician is unable 
+				to pick up his/her music during office hours, arrangements may be made with the Society to either have the 
+				music mailed, copies of the music mailed or another mutually agreed upon method for facilitating this exchange.<br/><br/>
+				
+				<hr/><a name="q6"></a>
+				<strong>Will the ASO reimburse my mileage?</strong><br/><br/>
+				Yes.  The ASO will reimburse mileage at $0.24/mile.  Mileage reimbursement will need to be reported on the 
+				<a href="/musicians/forms/service-claim/">Service Claim Form</a> in order for the reimbursement to appear 
+				on the musician's paycheck.  In addition to mileage, musicians should use the <a href="/musicians/forms/service-claim/">Service Claim Form</a> 
+				to claim reimbursement for doubling, cartage, and per-diem when applicable.<br/><br/>
+				
+				<hr/><a name="q7"></a>
+				<strong>Will the ASO put me up in a hotel?</strong><br/><br/>
+				Yes.  Musicians traveling from outside of Pulaski County will be put up in a hotel at no expense to the musician, 
+				so long as the musician is willing to have another musician as a roommate.  Musicians requiring a single room may 
+				request this, but will be expected to pay 50% of the room cost (deducted from the musician's paycheck).  All 
+				incidental charges will be the responsibility of the musician.  To request a hotel room, please use the 
+				<a href="/musicians/forms/hotel-request/">Hotel Request Form</a>.<br/><br/>
+
+			{% endblock %}
+			{% block link-back %}
+			<br/>
+				<a href="/musicians/">Musician Home</a>
+			
+			{% endblock %}
+	

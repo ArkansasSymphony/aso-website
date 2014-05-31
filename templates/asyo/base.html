@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{%block title %}{% endblock%}</title>
+        {% load staticfiles %}
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="/static/registration/css/TableTools.css">
+        <link rel="stylesheet" type="text/css" href="/static/registration/css/style.css">
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js">
+        </script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/static/registration/js/ui.tabs.paging.js"></script>
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js">
+        </script>
+        <script type="text/javascript" src ="/static/registration/js/ZeroClipboard.js"></script>
+        <script type="text/javascript" src ="/static/registration/js/TableTools.js"></script>
+        {%block admin_scripts %}
+        {% endblock %}
+        <script type="text/javascript">
+           
+           function del_student(student){
+                var del_student = confirm("Are you sure you want to delete the selected student?");
+                if(del_student == true){
+                    console.log("deleting "+student);
+                    window.location.href  = "/asyo/delete/s/"+student;
+                }
+                else
+                {
+                    // do nothing
+                }
+            }
+            function del_application (application) {
+                  var del_student = confirm("Are you sure you want to delete the selected application?");
+                if(del_student == true){
+                    console.log("deleting "+application);
+                    window.location.href  = "/asyo/delete/app/"+application;
+                }
+                else
+                {
+                    // do nothing
+                }   
+            }
+           
+        </script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
+    </head>
+    <body>
+        <h1>{%block location%}{% endblock%}</h1>
+        <div class="container">
+            {% block content%}
+            {% endblock %}
+        </div>
+        
+    </body>
+</html>

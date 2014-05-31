@@ -1,0 +1,126 @@
+{% extends 'asyo/base.html' %}
+{% load url from future %}
+{% block title %}ASYO Admin Panel{% endblock %}
+{%block admin_scripts %}
+  <script type="text/javascript">
+    // create all the tables and add buttons for exporting data
+    $(document).ready(function(){
+      var oTable = $('#adminTable').dataTable({
+                      "bProcessing": true,
+                      "sAjaxSource": '/asyo/appadminjson/',
+                      "sDom": 'T<"clear">lfrtip',
+                      "oTableTools": {
+                      "sSwfPath": "/static/registration/TableTools/media/swf/copy_csv_xls_pdf.swf"
+                  }
+    				});
+      var sTable = $('#studentTable').dataTable({
+                      "bProcessing": true,
+                      "sAjaxSource": '/asyo/studentjson/',
+                      "sDom": 'T<"clear">lfrtip',
+                      "oTableTools": {
+                      "sSwfPath": "/static/registration/TableTools/media/swf/copy_csv_xls_pdf.swf"
+                  }
+            });
+      var pTable = $('#parentTable').dataTable({
+                      "bProcessing": true,
+                      "sAjaxSource": '/asyo/parentjson/',
+                      "sDom": 'T<"clear">lfrtip',
+                      "oTableTools": {
+                      "sSwfPath": "/static/registration/TableTools/media/swf/copy_csv_xls_pdf.swf"
+                  }
+            });
+      var aTable = $('#appTable').dataTable({
+                      "bProcessing": true,
+                      "sAjaxSource": '/asyo/appjson/',
+                      "sDom": 'T<"clear">lfrtip',
+                      "oTableTools": {
+                      "sSwfPath": "/static/registration/TableTools/media/swf/copy_csv_xls_pdf.swf"
+                  }
+            });
+    });
+    
+    // tabs
+     $(function ($){
+                $('#main').tabs();
+                $('#main').tabs('paging', {cycle: true, follow: true});
+            });  
+  </script>
+{% endblock %}
+{% block content %}
+    <button class="updateButton" onclick="window.location.href='/asyo/logout/'">logout</button>
+    <h1>ASYO Admin Page</h1>
+	<h3>Welcome {{ user}} !</h3>
+	<hr>
+      <div id="adminInfo">
+      	<h3>Admin Info</h3>
+      	 <table cellpadding="0" cellspacing="0" border="0" class="display" width="100%" id="adminTable">
+      	 	<thead>
+      	 	<tr>
+      	 		  <th>Applicant</th>
+          		<th>Approve for Group</th>
+          		<th>Date Approved</th>
+          		<th>Approved By</th>
+          		<th>Paid</th>
+          		<th>Paid Amount</th>
+          		<th>Paid Notes</th>
+          		<th>Date Paid in Full</th>
+      	 	</tr>
+      	 </thead>
+      	 <tbody>
+      	 </tbody>
+      	</table>
+      </div>
+      <div id="studentInfo">
+        <h3>Student Info</h3>
+         <table cellpadding="0" cellspacing="0" border="0" class="display" width="100%" id="studentTable">
+          <thead>
+          <tr>
+              <th>Student</th>
+              <th>Cell</th>
+              <th>Email</th>
+              <th>Current Grade</th>
+              <th>Instrument</th>
+              <th>Status</th>
+          </tr>
+         </thead>
+         <tbody>
+         </tbody>
+        </table>
+      </div>
+      <div id="parentInfo">
+        <h3>Parent Info</h3>
+         <table cellpadding="0" cellspacing="0" border="0" class="display" width="100%" id="parentTable">
+          <thead>
+          <tr>
+              <th>Parent</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th>Cell</th>
+              <th>Email</th>
+              <th>Preferred Com</th>
+          </tr>
+         </thead>
+         <tbody>
+         </tbody>
+        </table>
+       </div>
+       <div id="appInfo">
+        <h3>Applications Info</h3>
+         <table cellpadding="0" cellspacing="0" border="0" class="display" width="100%" id="appTable">
+          <thead>
+          <tr>
+              <th>Student</th>
+              <th>Applying for</th>
+              <th>Year</th>
+              <th>Application date</th>
+              <th>Age</th>
+              <th>Current grade</th>
+          </tr>
+         </thead>
+         <tbody>
+         </tbody>
+        </table>
+      </div>
+{% endblock %}

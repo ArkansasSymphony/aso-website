@@ -1,0 +1,31 @@
+{% extends "connect/connect_base.html" %}
+
+{% block title_detail %}
+	Loyalty
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<div style="font-size: 24px; margin-bottom: 5px;">Thank you for Your Long-Time Support!</div><br><br>
+			
+We are happy to count you among our most long-term subscribers.  In an effort to better serve you, we are looking at different ways to recognize and appreciate those who have supported us for many years.<br><br>
+
+Please take the time to fill out the survey below.  Thank you!<br><br>
+
+<form action="" method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit">
+</form>
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

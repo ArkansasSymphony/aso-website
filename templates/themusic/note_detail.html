@@ -1,0 +1,35 @@
+{% extends "themusic/themusic_base.html" %}
+
+{% block title_detail %}
+	{{ piece.composer }} - {{ piece.title }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+				
+			<div style="font-size: 24px; margin-bottom: 5px;">{{ piece.title }}</div>
+			Performed on <a href="/concerts/{{ piece.show.url_name }}" class="orange">{{ piece.show.name }}, {{ piece.show.short_month}} {{ piece.show.short_day }}</a>
+			<br><br>
+			
+			{{ piece.program_note|linebreaks }}
+
+			<br/><br/>
+			{% if piece.video == None %}
+
+			{% else %}
+				<font size="5" color="000000">More about the piece</font>
+				<br/><br/><br/>
+				<iframe width="480" height="360" src="{{  piece.video.url  }}" frameborder="0" allowfullscreen></iframe>
+			{% endif %}
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

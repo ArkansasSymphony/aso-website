@@ -1,0 +1,160 @@
+<html>
+<head>
+  <title>Patrons</title>
+  <!--<link rel="stylesheet" type="text/css" href="/static/css/foundation3.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/checkin.css">-->
+
+</head>
+<body>
+	<h1>Enter Patron Data</h1>
+		<!--<form action="" method="post">{% csrf_token %}
+			{{  form.as_ul  }}
+			<p><input type="submit" value="Submit request" /></p>
+		</form>-->
+		
+		<form action="" method="post">{% csrf_token %}
+		{{ form.non_field_errors }}
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.first_name.errors }}
+				<label for="id_first_name">Patron First Name:</label>
+				{{ form.first_name }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.last_name.errors }}
+				<label for="id_last_name">Patron Last Name:</label>
+				{{ form.last_name }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.full_name.errors }}
+				<label for="id_full_name">Patron Full Name:</label>
+				{{ form.full_name }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.email.errors }}
+				<label for="id_email">Email Address:</label>
+				{{ form.email }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.organization.errors }}
+				<label for="id_organization">Organization:</label>
+				{{ form.organization }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.bid_number.errors }}
+				<label for="id_bid_number">Bid Number</label>
+				{{ form.bid_number }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.checked_in.errors }}
+				<label for="id_checked_in">Checked in?</label>
+				{{ form.checked_in }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.cc_number.errors }}
+				<label for="id_cc_number">Card number</label>
+				{{ form.cc_number }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.cc_month.errors }}
+				<label for="id_cc_month">Exp. month</label>
+				{{ form.cc_month }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.cc_year.errors }}
+				<label for="id_cc_year">Exp. year</label>
+				{{ form.cc_year }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.cc_cvc.errors }}
+				<label for="id_cc_cvc">Card CVC</label>
+				{{ form.cc_cvc }}
+			</div>
+		</div>
+		<!--<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.strip_id.errors }}
+				<label for="id_stripe_id">Stripe ID</label>
+				{{ form.stripe_id }}
+			</div>
+		</div>-->
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.phone.errors }}
+				<label for="id_phone">Phone</label>
+				{{ form.phone }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.address.errors }}
+				<label for="id_address">Street Address</label>
+				{{ form.address }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.city.errors }}
+				<label for="id_city">City</label>
+				{{ form.city }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.state.errors }}
+				<label for="id_state">State</label>
+				{{ form.state }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.zip.errors }}
+				<label for="id_zip">Zip</label>
+				{{ form.zip }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.dining_assignment.errors }}
+				<label for="id_dining_assignment">Dining Assignment</label>
+				{{ form.dining_assignment }}
+			</div>
+		</div>
+		<div class="six columns">
+			<div class="fieldWrapper">
+				{{ form.notes.errors }}
+				<label for="id_notes">Notes</label>
+				{{ form.notes }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+			<br/>
+			<p><input type="submit" value="Save Patron" /></p>
+			</div>
+		</div>
+		
+		</form>
+ 
+</body>
+</html>

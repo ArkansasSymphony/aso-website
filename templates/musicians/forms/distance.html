@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="noindex,follow" />
+    <title>Calculate driving</title>
+    <script src="http://maps.google.com/maps?file=api&v=3key=AIzaSyAps18qow_6BoppqA7PkbjdPpPHufkwZ8M" type="text/javascript"></script>
+  </head>
+
+  <body onload="initialize()">
+
+    <form action="#" onsubmit="showLocation(); return false;">
+	<div id="mus-title">Distance Calculator</div><br/>
+		<p>Enter city, state (e.g. Little Rock, AR)</p>
+      <p>
+        Starting city: <input type="text" name="address1" value="" /><br/>
+        Destination city: <input type="text" name="address2" value="" />
+        <input type="submit" value="Search" />
+      </p>
+    </form>
+    <p id="results"></p>
+	
+	
+
+  </body>
+  <script>
+  var geocoder, location1, location2, gDir;
+
+function initialize() {
+    geocoder = new GClientGeocoder();
+    gDir = new GDirections();
+    GEvent.addListener(gDir, "load", function() {
+        var drivingDistanceMiles = gDir.getDistance().meters / 1609.344;
+        var drivingDistanceKilometers = gDir.getDistance().meters / 1000;
+		var drivingDistanceMiles = Math.round(drivingDistanceMiles);
+        document.getElementById('results').innerHTML = '<strong>Driving Distance: </strong>' + drivingDistanceMiles + ' miles.' + '  Please enter result in mileage field on service claim form.  For round trip claims remember to double this mileage<br/><br/>Thank you!';
+    });
+}
+
+function showLocation() {
+    geocoder.getLocations(document.forms[0].address1.value, function (response) {
+        if (!response || response.Status.code != 200)
+        {
+            alert("Sorry, we were unable to geocode the first address");
+        }
+        else
+        {
+            location1 = {lat: response.Placemark[0].Point.coordinates[1], lon: response.Placemark[0].Point.coordinates[0], address: response.Placemark[0].address};
+            geocoder.getLocations(document.forms[0].address2.value, function (response) {
+                if (!response || response.Status.code != 200)
+                {
+                    alert("Sorry, we were unable to geocode the second address");
+                }
+                else
+                {
+                    location2 = {lat: response.Placemark[0].Point.coordinates[1], lon: response.Placemark[0].Point.coordinates[0], address: response.Placemark[0].address};
+                    gDir.load('from: ' + location1.address + ' to: ' + location2.address);
+                }
+            });
+        }
+    });
+}
+
+</script>
+</html>

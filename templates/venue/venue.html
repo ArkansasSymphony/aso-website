@@ -1,0 +1,60 @@
+
+
+{% extends "venue/venue_base.html" %}
+
+{% block title_detail %}
+	ASO Venues
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br/>
+			<br/>
+			<div style="font-size: 24px;">ASO Venues</div><br/>
+			<br/>
+			The ASO performs over 60 concerts a year in various venues around Arkansas. See below for all of our subscription concert venues as well as some of our special events. Our goal is to make it as easy as possible to get information and make our venues as accessible as possible for all patrons. Please call us at (501) 666.1761, ext. 100 if you have any questions or if there is anything we can do to make your concert experience better!<br/>
+			<br/>
+			{% if masterworks_list %}
+				<div style="font-size: 24px;">Masterworks Series <a href="/concerts/masterworks/upcoming/2014-2015/" class="smallBlue">Concert Information</a><br/></div>
+				{% for venue in masterworks_list %}
+				<a href="/venue/{{ venue.url_name }}" class="blue">{{ venue.name }}</a><br/>
+				{% endfor %}
+				<br/>
+			{% endif %}
+			{% if pops_list %}
+				<div style="font-size: 24px; ">Pops Live! Series <a href="/concerts/pops/upcoming/2014-2015/" class="smallBlue">Concert Information</a><br/></div>
+				{% for venue in pops_list %}
+				<a href="/venue/{{ venue.url_name }}" class="blue">{{ venue.name }}</a><br/>
+				{% endfor %}
+				<br/>
+			{% endif %}
+			{% if chamber_list %}
+				<div style="font-size: 24px; ">River Rhapsodies Chamber Series <a href="/concerts/chamber/upcoming/2014-2015/" class="smallBlue">Concert Information</a><br/></div>
+				{% for venue in chamber_list %}
+				<a href="/venue/{{ venue.url_name }}" class="blue">{{ venue.name }}</a><br/>
+				{% endfor %}
+				<br/>
+			{% endif %}
+			{% if inc_list %}
+				<div style="font-size: 24px; ">Intimate Neighboorhood Concerts <a href="/concerts/neighborhood/upcoming/2013-2014/" class="smallBlue">Concert Information</a><br/></div>
+				{% for venue in inc_list %}
+				<a href="/venue/{{ venue.url_name }}" class="blue">{{ venue.name }}</a><br/>
+				{% endfor %}
+				<br/>
+			{% endif %}
+			{% if other_list %}
+				<div style="font-size: 24px; ">Other ASO Venues</div>
+				{% for venue in other_list %}
+				<a href="/venue/{{ venue.url_name }}" class="blue">{{ venue.name }}</a><br/>
+				{% endfor %}
+			{% endif %}
+			
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

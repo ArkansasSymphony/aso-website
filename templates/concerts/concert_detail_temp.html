@@ -1,0 +1,233 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block headerScripts %}
+	
+	<script language="JavaScript" src="/media/js/audio-player.js"></script>
+
+{% endblock %}
+
+
+{% block concertSponsor %}
+{% if show.sponsors.all %}
+
+                                        <font size="1">Sponsored by:</font>
+                                        <br><br>
+
+
+                                                {% for sponsor in show.sponsors.all %}
+                                                                <a 
+href="{{ sponsor.url }}"><img src="/media/{{ sponsor.picture }}" alt="{{ 
+sponsor.name }}" border="0"></a><br><br><br>
+                                                {% endfor %}
+
+
+                                {% endif %}
+
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			
+			
+			<div style="font-size: 24px; margin-bottom: 5px;">{{ show.name }}</div>
+			<b>Location:</b> {{ show.location }} {% ifnotequal show.id 36 %}(<a href="/visit/directions" class="orange">directions</a>){% endifnotequal %}<br>
+			<b>Price Range:</b>
+			
+			{% ifequal show.type "classical" %}
+				$14 - $48
+			{% endifequal %}
+			
+			{% ifequal show.type "pops" %}
+				$20 - $65
+			{% endifequal %}
+			
+			{% ifequal show.type "chamber" %}
+			{% ifnotequal show.id 36 %}
+				$22
+			{% else %}
+				Free
+			{% endifnotequal %}
+			{% endifequal %}
+
+			{% ifequal show.type "nutcracker" %}
+				$20 - $52
+			{% endifequal %}
+
+			{% ifequal show.type "event" %}
+				See Description Below
+			{% endifequal %}
+			
+			<br><br>
+			<a href="{{ show.conductor_link }}" class="orange">{{ show.conductor }}</a><br>
+			
+			{% for artist in show.artists.all %}
+				<a href="/artists/{{ artist.url_name }}/{{ show.url_name }}/" class="orange">{{ artist.name }}</a><br>
+			{% endfor %}
+			
+			<br><br>
+			
+			{% if show.large_picture %}
+				<div id="show_photo">
+					<img src="/media/{{ show.large_picture }}">
+				</div>
+			{% endif %}
+			
+			<div id="concert_list">
+				{% for concert in concertList %}
+				
+					<b>
+					{% ifequal concert.date.month 1 %}
+						January
+					{% endifequal %}
+					{% ifequal concert.date.month 2 %}
+						February
+					{% endifequal %}
+					{% ifequal concert.date.month 3 %}
+						March
+					{% endifequal %}
+					{% ifequal concert.date.month 4 %}
+						April
+					{% endifequal %}
+					{% ifequal concert.date.month 5 %}
+						May
+					{% endifequal %}
+					{% ifequal concert.date.month 6 %}
+						June
+					{% endifequal %}
+					{% ifequal concert.date.month 7 %}
+						July
+					{% endifequal %}
+					{% ifequal concert.date.month 8 %}
+						August
+					{% endifequal %}
+					{% ifequal concert.date.month 9 %}
+						September
+					{% endifequal %}
+					{% ifequal concert.date.month 10 %}
+						October
+					{% endifequal %}
+					{% ifequal concert.date.month 11 %}
+						November
+					{% endifequal %}
+					{% ifequal concert.date.month 12 %}
+						December
+					{% endifequal %}
+					
+					{{ concert.date.day }}, {{ concert.date.year }}</b><br>
+					
+					{% ifequal concert.date.weekday 0 %}
+						Monday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 1 %}
+						Tuesday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 2 %}
+						Wednesday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 3 %}
+						Thursday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 4 %}
+						Friday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 5 %}
+						Saturday&nbsp;at
+					{% endifequal %}
+					{% ifequal concert.date.weekday 6 %}
+						Sunday&nbsp;at
+					{% endifequal %}
+					
+					{{ concert.time }}<br>
+					
+					
+					{% ifequal concert.is_past "False" %}
+					{% ifnotequal show.season "2011-2012" %}
+					{% ifnotequal show.id 36 %}
+
+					{% else %}
+						<br>Free!  No ticket necessary.
+				
+					{% endifnotequal %}
+					
+					{% else %}
+
+						<a href="http://www.arkansassymphony.org/concerts/subscriptions" class="orange">Subscribe and Save 50%!</a>
+					{% endifnotequal %}
+
+					{% endifequal %}
+
+<br><br>					
+					
+				{% endfor %}
+								Due to a power outage, our ticketing system is down.<br><br>
+<b>Tickets are still available</b><br><br>To order, please contact Brandon Dorris at <a 
+href="mailto:bdorris@arkansassymphony.org" 
+class="orange">bdorris@arkansassymphony.org</a>.
+
+			</div>
+			
+			<div id="program">
+				<font size="5" color="#000000">Program</font>
+				<br><br>
+				
+				
+				{% if show.description %}
+					{{ show.description|linebreaks }}
+					<br><br><br>
+				{% endif %}
+
+				{% if pieceList %}
+					<table width="600" cellpadding="0" cellspacing="0" border="0">
+				
+					{% for piece in pieceList %}
+						<tr>
+							<td width="200">&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#cc6600">{{ piece.composer }}</font></b></td>
+							<td width="290">{{ piece.title }}</td>
+							<td width="110">
+								{% if piece.program_note %}
+									<a href="/themusic/notes/{{ piece.url_name }}/{{ show.url_name }}/" class="orange">About this piece</a>
+								{% endif %}
+						</tr>
+						
+						{% if piece.music %}
+												
+							<tr>
+								<td width="600" colspan="3" style="border: none;">
+									
+									<div style="margin-left: 40px;">
+										<font color="#cc6600" size="1">listen</font>&nbsp;&nbsp;&nbsp;&nbsp;
+										<object type="application/x-shockwave-flash" data="/media/music/player.swf" id="{{ forloop.counter }}" height="14" width="80">
+											<param name="movie" value="/media/music/player.swf">
+											<param name="FlashVars" value="playerID={{ forloop.counter }}&soundFile=/media/{{ piece.music.filename }}">
+											<param name="quality" value="high">
+											<param name="menu" value="false">
+											<param name="wmode" value="transparent">
+										</object>
+									</div>
+								</td>
+							</tr>
+					
+						{% endif %}
+				
+					{% endfor %}
+					
+					</table>
+				
+				{% endif %}
+			
+			</div>
+			
+		
+	
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

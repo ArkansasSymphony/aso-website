@@ -1,0 +1,150 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	Subscriptions
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<div style="font-size: 24px; margin-bottom: 5px;">Subscriptions</div><br><br>
+			
+			The best seats, savings over single ticket prices, and flexible ticket exchange are just 3 of the reasons to become a subscriber!  Check out all of the <a href="/concerts/benefits/" class="medblue">subscriber benefits</a>.
+			<br><br><br>
+			To renew a current subscription, please contact the ASO Box Office at (501) 666-1761 ext. 100 or <a href="mailto:info@arkansassymphony.org" 
+class="medblue">info@arkansassymphony.org</a>.  We apologize that we cannot process renewals online at this time.<br><br><br>	
+
+	
+			{% for sub in subList %}
+				
+				{% ifequal sub.type "neighborhood" %}
+				
+					<div class="subscription">	
+						<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=prepaid_subscription.asp?prepaid_code={{ sub.pe_id }}" class="blue" target="_blank">{{ sub.name }}</a>
+						{{ sub.description|linebreaks }}<br>
+						
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td width="75" valign="top">concerts:</td>
+								<td>			
+									{% for show in sub.shows.all %}
+								
+										<a href="/concerts/{{ show.url_name }}" class="medBlue">{{ show.name }}</a>&nbsp;&nbsp;<font size="1" color="#2d9bfd">|</font>&nbsp;&nbsp;
+								
+									{% endfor %}
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br><br>
+					
+				{% endifequal %}
+				
+			{% endfor %}
+			{% for sub in subList %}
+				
+				{% ifequal sub.type "classical" %}
+				
+					<div class="subscription">	
+						<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=prepaid_subscription.asp?prepaid_code={{ sub.pe_id }}" class="blue" target="_blank">{{ sub.name }}</a>
+						{{ sub.description|linebreaks }}<br>
+						
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td width="75" valign="top">concerts:</td>
+								<td>			
+									{% for show in sub.shows.all %}
+								
+										<a href="/concerts/{{ show.url_name }}" class="medBlue">{{ show.name }}</a>&nbsp;&nbsp;<font size="1" color="#2d9bfd">|</font>&nbsp;&nbsp;
+								
+									{% endfor %}
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br><br>
+					
+				{% endifequal %}
+				
+			{% endfor %}
+
+			
+			
+			{% for sub in subList %}
+				
+				{% ifequal sub.type "pops" %}
+				
+					<div class="subscription">	
+						<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=prepaid_subscription.asp?prepaid_code={{ sub.pe_id }}" class="blue" target="_blank">{{ sub.name }}</a>
+						{{ sub.description|linebreaks }}<br>
+						
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td width="75" valign="top">concerts:</td>
+								<td>			
+									{% for show in sub.shows.all %}
+								
+										<a href="/concerts/{{ show.url_name }}" class="medBlue">{{ show.name }}</a>&nbsp;&nbsp;<font size="1" color="#2d9bfd">|</font>&nbsp;&nbsp;
+								
+									{% endfor %}
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br><br>
+					
+				{% endifequal %}
+				
+			{% endfor %}
+
+			{% for sub in subList %}
+				
+				{% ifequal sub.type "chamber" %}
+				
+					<div class="subscription">	
+						<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=prepaid_subscription.asp?prepaid_code={{ sub.pe_id }}" class="blue" target="_blank">{{ sub.name }}</a>
+						{{ sub.description|linebreaks }}<br>
+						
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td width="75" valign="top">concerts:</td>
+								<td>			
+									{% for show in sub.shows.all %}
+								
+										<a href="/concerts/{{ show.url_name }}" class="medBlue">{{ show.name }}</a>&nbsp;&nbsp;<font size="1" color="#2d9bfd">|</font>&nbsp;&nbsp;
+								
+									{% endfor %}
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br><br>
+					
+				{% endifequal %}
+				
+			{% endfor %}
+			
+			{% for sub in subList %}
+				
+				{% ifequal sub.type "flex" %}
+				
+					<div class="subscription">	
+						<a href="https://tickets.arkansassymphony.org/public/loader.asp?target=prepaid_subscription.asp?prepaid_code={{ sub.pe_id }}" class="blue" target="_blank">{{ sub.name }}</a>
+						{{ sub.description|linebreaks }}<br>
+						
+					</div>
+					<br><br>
+					
+				{% endifequal %}
+				
+			{% endfor %}
+					
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

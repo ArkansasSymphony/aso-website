@@ -1,0 +1,144 @@
+{% extends "support/support_base.html" %}
+
+{% block title_detail %}
+	Give Online
+{% endblock %}
+
+{% block headerScripts %}
+<!--Stripe library -->
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+ 
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
+  <script type="text/javascript">
+    // This identifies your website in the createToken call below
+    	Stripe.setPublishableKey('pk_live_ydEe99GKGuDvyNjj0mV1b2qi');
+	//Stripe.setPublishableKey('pk_test_Z3Fa4EQcr50eR8vY91dzT5Ro');
+ 
+    var stripeResponseHandler = function(status, response) {
+      var $form = $('#payment-form');
+ 
+      if (response.error) {
+        // Show the errors on the form
+        $form.find('.payment-errors').text(response.error.message);
+        $form.find('button').prop('disabled', false);
+      } else {
+        // token contains id, last4, and card type
+        var token = response.id;
+        // Insert the token into the form so it gets submitted to the server
+        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+        // and re-submit
+        $form.get(0).submit();
+      }
+    };
+ 
+    jQuery(function($) {
+      $('#payment-form').submit(function(e) {
+        var $form = $(this);
+ 
+        // Disable the submit button to prevent repeated clicks
+        $form.find('button').prop('disabled', true);
+ 
+        Stripe.createToken($form, stripeResponseHandler);
+ 
+        // Prevent the form from submitting with the default action
+        return false;
+      });
+    });
+  </script>
+
+{% endblock %}
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<form action="" method="POST" id="payment-form">{% csrf_token %}
+			<span class="payment-errors"></span>
+			{{ form.non_field_errors }}
+			
+			<div class="fieldWrapper">
+				{{ form.name.errors }}
+				<label for="id_name">Name (as you would like to be listed in the playbill):  </label>
+				{{ form.name }}
+			</div>
+			<br/><br/><br/>
+			<div class="fieldWrapper">
+				{{ form.donation.errors }}
+				<label for="id_donation">Donation amount (whole dollars, no symbols, please): </label>
+				{{ form.donation }}
+			</div>
+			<br/><br/><br/>
+			<div class="fieldWrapper">
+				{{ form.anonymous.errors }}
+				<label for="id_anonymous">May we recognize you for your support? </label>
+				{{ form.anonymous }}
+			</div>
+			<br/>
+			<p>Please enter your contact information so the ASO can send you a tax credit receipt:  </p>
+			<br/>
+			<div class="fieldWrapper">
+				{{ form.email.errors }}
+				<label for="id_email">Email:  </label>
+				{{ form.email }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.phone.errors }}
+				<label for="id_phone">Phone:  </label>
+				{{ form.phone }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.address.errors }}
+				<label for="id_address">Address:  </label>
+				{{ form.address }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.city.errors }}
+				<label for="id_city">City:  </label>
+				{{ form.city }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.state.errors }}
+				<label for="id_state">State:  </label>
+				{{ form.state }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.zip.errors }}
+				<label for="id_zip">ZIP Code: </label>
+				{{ form.zip }}
+			</div>
+			<div class="fieldWrapper">
+				{{ form.notes.errors }}
+				<label for="id_notes">Special notes:  </label>
+				{{ form.notes }}
+			</div>
+			<br/>
+			<br/>
+			
+			
+		<!--CARD INFO PROCESSED BY stripe.js-->
+			<div class="fieldWrapper">
+				<label>Card Number:  </label>
+				<input type="text" size="20" data-stripe="number"/>
+			</div>
+			<br/><br/>
+			<div class="fieldWrapper">
+				<label>CVC:  </label>
+				<input type="text" size="4" data-stripe="cvc"/>
+			</div>
+			<br/><br/>
+			<div class="fieldWrapper">
+				<label>Expiration (MM/YYYY):  </label><input type="text" size="2" data-stripe="exp-month"/> / <input type="text" size="4" data-stripe="exp-year"/>
+			</div>
+			<br/><br/>
+			<button type="submit" class="button_donate">Click to Donate!</button>
+		</form>
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

@@ -1,0 +1,69 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+		<div id="mus-title">
+			Hotel Request Form
+		</div>
+		<br/>
+		<p>* indicates required field</p>
+	
+		<form action="" method="post">{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.name.errors }}
+					<label for="id_name">*Your name:</label>
+					{{ form.name }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.email.errors }}
+					<label for="id_email">*Your email address:</label>
+					{{ form.email }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.check_in.errors }}
+					<label for="id_check_in">*Check-in Date:  <i>mm/dd/yyyy</i></label>
+					{{ form.check_in }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.check_out.errors }}
+					<label for="id_check_out">*Check-out Date:  <i>mm/dd/yyyy</i></label>
+					{{ form.check_out }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.room_type.errors }}
+					<label for="id_room_type">*Room Type:</label>
+					{{ form.room_type }}
+					<i>Single occupancy billed to musician $25/night.  Double occupancy is no cost to musician</i>
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.roommate_request.errors }}
+					<label for="id_roommate_request">Roommate Request:</label>
+					{{ form.roommate_request }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+				<br/>
+				<p><input type="submit" value="Submit request" /></p>
+				</div>
+			</div>
+		</form>
+
+		
+	{% endblock %}
+	
+	{% block reveal %}
+		
+
+	{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "concerts/concerts_base.html" %}
+
+{% block title_detail %}
+	2010-2011 Season
+{% endblock %}
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			<div style="float: right; display: inline; text-align: right; margin-right: 40px;">
+				{% ifequal display 'all' %}
+					view: <b>all</b>&nbsp;|&nbsp;<a href="/concerts/{{ category }}/upcoming/" class="orange">upcoming</a>
+				{% endifequal %}
+				
+				{% ifequal display 'upcoming' %}
+					view: <a href="/concerts/{{ category }}/all/" class="orange">all</a>&nbsp;|&nbsp;<b>upcoming</b>
+				{% endifequal %}
+				
+				{% ifequal category "all" %}
+					<br><br><br><br><br>
+					Jump to:<br>
+					<a href="#masterworks" class="orange">Masterworks</a><br>
+					<a href="#pops" class="orange">Pops Live!</a><br>
+					<a href="#chamber" class="orange">Chamber</a>
+				{% endifequal %}
+			</div>
+			
+			{% ifnotequal category "pops" %}
+				{% ifnotequal category "chamber" %}
+					<div style="font-size: 24px; margin-bottom: 5px;"><a name="masterworks">Masterworks</a></div><br>
+						
+					{% for show in mwList %}
+						
+						
+						<div class="event">	
+							
+							<div class="event_left">
+								<img src="/media/{{ show.small_picture }}">
+							</div>
+			
+							
+							<div class="event_right">
+								<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+								
+								<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+								<br>
+								<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+							
+								{{ show.short_desc|linebreaks }}
+								<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+								
+							</div>
+							
+						</div>	
+						<br>
+					
+					{% endfor %}
+					
+					<br><br>
+						
+				{% endifnotequal %}
+			{% endifnotequal %}
+			
+		
+			
+			{% ifnotequal category "masterworks" %}
+				{% ifnotequal category "chamber" %}
+				
+					<div style="font-size: 24px; margin-bottom: 5px;"><a name="pops">Pops Live!</a></div><br>
+				
+					{% for show in popsList %}
+						
+						
+						<div class="event">	
+							
+							<div class="event_left">
+								<img src="/media/{{ show.small_picture }}">
+							</div>
+			
+							
+							<div class="event_right">
+								<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+								
+								<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+								<br>
+								<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+							
+								{{ show.short_desc|linebreaks }}
+								<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+								
+							</div>
+							
+						</div>	
+						<br>
+					{% endfor %}
+					
+					<br><br>
+				{% endifnotequal %}
+			{% endifnotequal %}
+			
+			
+			{% ifnotequal category "masterworks" %}
+				{% ifnotequal category "pops" %}
+				
+					<div style="font-size: 24px; margin-bottom: 5px;"><a name="chamber">River Rhapsodies Chamber</a></div><br>
+				
+					{% for show in chamberList %}
+						
+						
+						<div class="event">	
+							
+							<div class="event_left">
+								<img src="/media/{{ show.small_picture }}">
+							</div>
+			
+							
+							<div class="event_right">
+								<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+								
+								<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+								<br>
+								<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+							
+								{{ show.short_desc|linebreaks }}
+								<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+								
+							</div>
+							
+						</div>	
+						<br>
+						
+					{% endfor %}
+				{% endifnotequal %}
+			{% endifnotequal %}
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

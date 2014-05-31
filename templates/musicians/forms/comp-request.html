@@ -1,0 +1,20 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+		<div id="mus-title">
+			Complimentary Ticket Request Form
+		</div><br/>
+		
+		<p>Use this form to request comp tickets for ASO concerts by 4:00pm on the Friday before the concert.</p>
+		<p><b>Tickets must be requested by Friday at 2:00pm to be delivered to rehearsal.</b></p>		
+		<form action="" method="post">{% csrf_token %}
+			{{  form.as_ul  }}
+			<p><input type="submit" value="Submit request" /></p>
+		</form>
+		
+	{% endblock %}
+	
+	{% block reveal %}
+		
+
+	{% endblock %}

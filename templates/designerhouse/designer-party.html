@@ -1,0 +1,46 @@
+{% extends "designerhouse/designer-main.html" %}
+{% if party_object %}
+
+{% block title %}Home{% endblock %}
+
+{% block page_title %}
+
+	<div class="ten columns">
+		<h3>{{  party_object.name  }}</h3><br/>
+		<h4><em>{{  party_object.short_description  }}</em></h4>
+		<br/>
+	</div>
+{% endblock %}
+					
+{% block sub_content %}
+	<div class="row">
+		<div class="six columns">
+			<div id="main-left">
+				{{  party_object.long_description  }}
+				<br/>
+				<br/>
+				{{  party_object.display_time}} {{  party_object.display_date  }}<br/>
+				<br/>
+				<a class="round button" href="https://tickets.arkansassymphony.org/public/loader.asp?target=show_events_list.asp?shCode={{  party_object.pe_id  }}">Buy Tickets Now!</a><br/>
+				<br/>
+				<a href="/designer-house/tickets/">Click here for directions and more information</a>
+			</div>
+		</div>
+		<div class="six columns">
+			<div id="main-right">
+				{% if party_object.name == "Crescendo Party" %}
+					<img src="{{  STATIC_URL  }}images/designerhouse/champagne.jpg" alt="Champagne glass"/>
+				{% elif party_object.name == "Girls' Night Out" %}
+					<img src="{{  STATIC_URL  }}images/designerhouse/martini.jpg" alt="Martini glass"/>
+				{% elif party_object.name == "Moonshine in May" %}
+					<img src="{{  STATIC_URL  }}images/designerhouse/jug.jpg" alt="Jug"/>
+				{% elif party_object.name == "Teapots and Toasts" %}
+					<img src="{{  STATIC_URL  }}images/designerhouse/teacup.jpg" alt="Teacup"/>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+{% endif %}
+				

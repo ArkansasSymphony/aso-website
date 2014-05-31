@@ -1,0 +1,31 @@
+{% extends "themusic/themusic_base.html" %}
+
+{% block title_detail %}
+	{{ player.name }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			<div style="float: right; display: inline; padding: 40px;">
+				{% if player.picture %}
+					<img src="/media/{{ player.picture }}" alt="{{ player.name }}">
+				{% endif %}
+			</div>
+			
+			<div style="font-size: 24px; margin-bottom: 5px;">{{ player.name }}</div><br><br>
+			
+			{% if player.bio %}
+				{{ player.bio|linebreaks }}			
+			{% endif %}
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

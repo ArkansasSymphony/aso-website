@@ -1,0 +1,27 @@
+{% extends "about/about_base.html" %}
+
+{% block title_detail %}
+	{{ job.title }}
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<div style="font-size: 24px; margin-bottom: 5px;">{{ job.title }}</div><br><br>
+			
+			Posted: {{ job.posted }}
+			
+			<br><br>
+
+			{{ job.description|safe }}
+
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

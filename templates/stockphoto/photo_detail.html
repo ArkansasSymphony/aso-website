@@ -1,0 +1,60 @@
+{% extends "connect/connect_base.html" %}
+{% block title_detail %} {{ object.gallery.title }} - {{ object.title }}
+
+
+{% endblock %}
+
+{% block post_nav %}
+
+
+ <td width="700" valign="top">
+                <div id="content">
+                        <br><br>
+
+
+<p id="breadcrumbs">
+  <a href="../.." class="orange">Galleries</a> &raquo;
+  <a href="../../{{ object.gallery.id }}/?start=0" class="orange">{{ object.gallery.title }}</a>
+</p>
+<br>
+<a href="/connect/photos/upload/{{ object.gallery.id }}/" class="orange">Upload Your Own Photo</a>
+<br><br>
+
+<br><br>
+{% if object.next %}
+<div style="float: left">  
+<a href="../{{ object.next.id }}/" class="orange">
+  <span>&laquo;  Previous </span></a>
+</div>
+{% endif %}
+{% if object.prev %}
+<div style="float: right;">
+  <a href="../{{ object.prev.id }}/" class="orange">
+  <span>Next &raquo;</span></a>
+</div>
+
+
+{% endif %}
+
+<br id="imageboxes-break"/>
+
+
+<div id="large-image-box">
+  <a href="{{ object.fullurl }}">
+    <img src="{{ object.dispurl }}"  alt="{{ object.title }}" />
+  </a>
+  <div>
+    {{ object.title }}<br>
+	{% if object.photographer %}
+		<i>posted by {{ object.photographer }}</i>
+	{% endif %}
+  </div>
+</div>
+
+
+</div>
+</td>
+</tr>
+</table>
+
+{% endblock %}

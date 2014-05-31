@@ -1,0 +1,38 @@
+{% extends 'asyo/base.html' %}
+{% load url from future %}
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+	{% if updating == ''  %}
+	{% include 'asyo/user_panel.html' %}
+	{% if reg_form.errors %}
+		<p style="color: red;">
+                Please correct the error{{ reg_form.errors|pluralize }} below.
+            </p>
+	{% endif %}
+	<h1>Update PARENT account below. You will need to re-enter and/or update your password.</h1>
+	<form method="post" action="">
+		{% csrf_token %}
+    	<table>
+        	{{ reg_form }}
+    	</table>
+    	<input type="submit" value="Register" />
+		<input type="hidden" name="next" value="{{ next }}" />
+	{% else %}
+	Already have an account? <a href="/asyo/members/"><b>Click here to login</b></a>, or <a href="mailto:bburroughs@arkansassymphony.org"><b>email Barbara</b></a> if you need help with your user name and/or password.	
+	{% if reg_form.errors %}
+		<p style="color: red;">
+                Please correct the error{{ reg_form.errors|pluralize }} below.
+            </p>
+	{% endif %}
+	<h1>Please create PARENT account below - you will add students later</h1>
+	<form method="post" action="">
+		{% csrf_token %}
+    	<table>
+        	{{ reg_form }}
+    	</table>
+    	<input type="submit" value="Register" />
+		<input type="hidden" name="next" value="{{ next }}" />
+	{% endif %}
+    </form>
+{% endblock %}

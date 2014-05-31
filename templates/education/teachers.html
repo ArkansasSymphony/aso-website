@@ -1,0 +1,354 @@
+{% extends "education/education_base.html" %}
+
+{% block title_detail %}
+	Find a Teacher
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			<div style="font-size: 24px; margin-bottom: 5px;">Find a Teacher</div><br><br>
+			
+<p>The Arkansas Symphony Orchestra would like to make finding a teacher easier for students of all ages.  Listed below are those ASO 
+musicians who have requested to be listed on the Arkansas Symphony Orchestra's website.  This is not a complete list of those ASO 
+musicians who teach, and the ASO does not recommend one group of teachers over the other, nor certify that each teaching relationship 
+will be the best one for you or your child.  A productive student/teacher relationship takes place over time and must include a frank 
+and honest discussion of student and teacher goals and objectives.</p>
+<p><b>ASO Musicians:</b> Please <a href="mailto:drenfro@arkansassymphony.org">email the ASO Operations Manager</a> if you would like to be added/removed from this list or to update your information.</p>
+<hr/>
+{% if string_teachers == "" %}
+{% else %}
+	<h3>STRINGS</h3>
+	{% if not violin_group %}
+	{% else %}
+		<b>Violin</b><br/>
+		<br/>
+		{% for teacher in violin_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not viola_group %}
+	{% else %}
+		<b>Viola</b><br/>
+		<br/>
+		{% for teacher in viola_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not cello_group %}
+	{% else %}
+		<b>Cello</b><br/>
+		<br/>
+		{% for teacher in cello_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not bass_group %}
+	{% else %}
+		<b>Bass</b><br/>
+		<br/>
+		{% for teacher in bass_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+{% if woodwind_teachers == "" %}
+{% else %}
+	<h3>Woodwinds</h3>
+	{% if not flute_group %}
+	{% else %}
+		<b>Flute</b><br/>
+		<br/>
+		{% for teacher in flute_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not oboe_group %}
+	{% else %}
+		<b>Oboe</b><br/>
+		<br/>
+		{% for teacher in oboe_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not english_horn_group %}
+	{% else %}
+		<b>English horn</b><br/>
+		<br/>
+		{% for teacher in english_horn_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not clarinet_group %}
+	{% else %}
+		<b>Clarinet</b><br/>
+		<br/>
+		{% for teacher in clarinet_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not bassoon_group %}
+	{% else %}
+		<b>Bassoon</b><br/>
+		<br/>
+		{% for teacher in bassoon_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not saxophone_group %}
+	{% else %}
+		<b>Saxophone</b><br/>
+		<br/>
+		{% for teacher in saxophone_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+{% if not brass_teachers %}
+{% else %}
+	<h3>Brass</h3>
+	{% if brass_group == "" %}
+	{% else %}
+		<b>Horn</b><br/>
+		<br/>
+		{% for teacher in horn_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not trumpet_group %}
+	{% else %}
+		<b>Trumpet</b><br/>
+		<br/>
+		{% for teacher in trumpet_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not trombone_group %}
+	{% else %}
+		<b>Trombone</b><br/>
+		<br/>
+		{% for teacher in trombone_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+	{% if not tuba_group %}
+	{% else %}
+		<b>Tuba</b><br/>
+		<br/>
+		{% for teacher in tuba_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+{% if percussion_teachers == "" %}
+{% else %}
+	<h3>Percussion</h3>
+	{% if not percussion_group %}
+	{% else %}
+		{% for teacher in percussion_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+{% if harp_teachers == "" %}
+{% else %}
+	<h3>Harp</h3>
+	{% if not harp_group %}
+	{% else %}
+		{% for teacher in harp_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+{% if piano_teachers = ""%}
+{% else %}
+	<h3>Piano</h3>
+	{% if not piano_group %}
+	{% else %}
+		{% for teacher in piano_group %}
+			{{ teacher.name }}<br/>
+			<a href="mailto:{{ teacher.email }}">{{ teacher.email }}</a><br/>
+			{% if teacher.phone == "" %}
+			{% else %}
+			{{ teacher.phone }}<br/>
+			{% endif %}
+			{% if teacher.notes == "" %}
+			{% else %}
+			{{ teacher.notes }}<br/>
+			{% endif %}
+			<br/>
+		{% endfor %}
+	{% endif %}
+{% endif %}
+<br/>
+<br/>
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

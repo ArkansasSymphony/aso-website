@@ -1,0 +1,68 @@
+
+{% extends "designerhouse/designer-main.html" %}
+{% if sponsor_list %}
+
+{% block title %}Sponsors{% endblock %}
+
+{% block page_title %}
+
+	<div class="ten columns">
+		<h3>Thank you to our generous sponsors</h3><br/>
+	</div>
+{% endblock %}
+					
+{% block sub_content %}
+	<div class="sponsor_logos">
+		<div class="row">
+			<div class="six columns centered">
+				<div id="sponsor_title"><br/><em>Premier<hr/></em></div>
+			</div>
+					{% for sponsor in sponsor_list %}
+						{% if sponsor.level == "premier" %}
+							<a href="{{  sponsor.sponsor_link  }}"><img src="{{  MEDIA_URL  }}{{  sponsor.logo  }}" alt="{{  sponsor.sponsor_name  }}"/></a>
+						{% endif %}
+					{% endfor %}
+		</div>
+		<div class="row">
+		<hr/>
+		<div class="six columns">
+			<div id="sponsor_title"><em>Participating<br/><hr/><br/></em></div>
+				{% for sponsor in sponsor_list %}
+					{% if sponsor.level == "participating" %}
+						{% if sponsor.logo == "" %}
+							<div id="no_logo"><em>{{  sponsor.sponsor_name  }}</em></div>
+						{% else %}
+							<a href="{{  sponsor.sponsor_link  }}"><img src="{{  MEDIA_URL  }}{{  sponsor.logo  }}" alt="{{  sponsor.sponsor_name  }}"/></a>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+		</div>
+		<div class="six columns">
+			<div id="sponsor_title"><em>Builder's Club<br/><hr/><br/></em></div>
+				{% for sponsor in sponsor_list %}
+					{% if sponsor.level == "builder" %}
+						{% if sponsor.logo == "" %}
+							<div id="no_logo"><em>{{  sponsor.sponsor_name  }}</em></div>
+						{% else %}
+							<a href="{{  sponsor.sponsor_link  }}"><img src="{{  MEDIA_URL  }}{{  sponsor.logo  }}" alt="{{  sponsor.sponsor_name  }}"/></a>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+		</div>
+		</div>
+	</div>
+{% endblock %}
+{% endif %}				
+
+{% block footer %}
+	<div class="row">
+	<div class="footer">
+		<br/>
+		501.666.1761, ext. 110 | PO Box 7328 Little Rock, AR | <a href="mailto:symphonydesignerhouse@arkansassymphony.org">symphonydesignerhouse@arkansassymphony.org</a><br/>
+		<br/>
+		<div class="web-design">
+			web development and design by <a href="mailto:bdorris@arkansassymphony.org">Brandon Dorris</a>
+		</div>
+	</div>
+	</div>
+{% endblock %}	

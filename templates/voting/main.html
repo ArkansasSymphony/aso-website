@@ -1,0 +1,137 @@
+{% extends "newbase.html" %}
+
+{% load voting_extras %}
+
+{% block title_detail %}
+	People's Choice
+{% endblock %}
+
+
+
+{% block headerScripts %}
+	
+	<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-twipsy.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-popover.js"></script>
+	
+	<script type="text/javascript">
+		$(function() {
+		  
+		$("div[rel=popover]")
+			.popover({
+				offset: 50,
+				placement: 'left',
+				trigger: 'manual'
+			})
+			.click(function(e) {
+			  e.preventDefault()
+			})
+				
+			{% for result in results %}
+				$("#{{ result.categoryId }}").popover('show')
+			{% endfor %}
+	  
+		});
+	</script>
+	
+{% endblock %}
+
+
+{% block main %}
+	<div class="spacer"></div>
+	
+		
+	<div class="row">
+	
+		<div class="span16">
+		
+			<div class="row">
+				<div class="span5">
+					<center>sponsored by<br>
+					<a href="http://www.uams.edu"><img src="http://www.arkansassymphony.org/media/sponsor_images/uams.jpg" border="0" alt="UAMS" width="100" height="56"></a></center>
+				</div>
+
+				<div class="span7">
+					<h1 style="margin-bottom: 0px">People's Choice</h1>
+					<h4>Winners!</h4>
+				</div>
+				
+				<div class="span4">
+					<h3><a href="/concerts/peoples-choice" class="blue">Tickets & Information</a></h3>
+					<p>Concerts: March 17 & 18</p>
+					
+				</div>
+			</div>
+			
+			<div class="spacer"></div>
+				
+			
+
+				
+				
+				
+				{% for result in results %}
+					<div class="row">
+						<!-- Left Content -->
+						<div class="span4 offset1">
+							<p></p>
+						</div>
+						<!-- /Left Content -->
+		
+						<!-- Category -->
+						<div class="span11" id="{{ result.categoryId }}" rel="popover" title="Category {{ forloop.counter }}" data-content="{{ result.category }}">
+							
+							<ul class="tabs">
+								
+							</ul>
+						
+					
+							<!-- Items -->
+							<div class="row">
+								<div class="span11">
+									<div class="clearfix">
+										<ul class="inputs-list">
+											{% for item in result.items %}
+												
+												<div class="votingrow" {% if values|hash:result.categoryId == item.id %}style="background-color: #9ed49e;"{% endif %}>
+												
+													<li>	
+														<label>
+															<span>
+								<a href="#" class="btn" style="width: 60px;">{{ forloop.counter }}{% if forloop.counter == 1 %}st{% endif %}{% if forloop.counter == 2 %}nd{% endif %}{% if forloop.counter == 3 %}rd{% endif %}{% if forloop.counter >= 4 %}th{% endif %} Place</a>
+															</span>
+															
+															
+															<span>
+																<h5 style="display: inline; margin-left: 10px;">{{ item.content }}</h5>
+															</span>
+														</label>
+													</li>
+												</div>
+										
+											{% endfor %}
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- /Items -->
+							
+							
+						
+						</div>
+						
+						
+					</div>
+					<!-- /Category -->
+					
+					<div class="spacer"></div>
+				{% endfor %}
+							
+		</div>
+		<!-- /Right Content -->
+			
+			
+	</div>
+	
+
+{% endblock %}
+

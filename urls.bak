@@ -1,0 +1,117 @@
+from django.conf.urls.defaults import *
+from django.views.generic.simple import direct_to_template
+from django.contrib.auth import views as auth_views
+
+
+#Enable the admin
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+	(r'^admin/', include(admin.site.urls)),
+	(r'^about/jobs/', include('arkansassymphony.jobs.urls')),
+)
+
+urlpatterns += patterns('arkansassymphony.views',
+	(r'^$', 'mainPage'),
+	#(r'^(?i)pick2/$', 'pick2'),
+	#(r'^(?i)guild/$', 'pick2guild'),
+	(r'^longterm/$', 'loyalty'),
+	(r'^thanks/$', direct_to_template, {'template': 'thanks.html'}), 
+	(r'^(?i)season/$', 'season'),
+)
+
+urlpatterns += patterns('arkansassymphony.galleries.views',
+	url(r'^connect/galleries$', 'galleries_view', name='galleries_view'),
+	url(r'^connect/galleries/(?P<gallery_url>\w+)/$', 'photos_view', name='photos_view'),
+	url(r'^connect/galleries/(?P<gallery_url>\w+)/(?P<photo_name>\file)$', 'single_photo', name='single_photo'),
+)
+
+urlpatterns += patterns('',
+	(r'^concerts/benefits/', direct_to_template, {'template': 'concerts/benefits.html'}),
+	(r'^concerts/groups/', direct_to_template, {'template': 'concerts/groups.html'}),
+	(r'^concerts/pricingseating/', direct_to_template, {'template': 'concerts/pricingseating.html'}),
+	(r'^concerts/donate/', direct_to_template, {'template': 'concerts/donate.html'}),
+	(r'^concerts/boxoffice/', direct_to_template, {'template': 'concerts/boxoffice.html'}),
+	
+	
+	(r'^themusic/musicdirector/', direct_to_template, {'template': 'themusic/musicdirector.html'}),
+	(r'^themusic/associate/', direct_to_template, {'template': 'themusic/associate.html'}),
+	(r'^themusic/talks/', direct_to_template, {'template': 'themusic/talks.html'}),
+	(r'^themusic/$', direct_to_template, {'template': 'themusic/themusic.html'}),
+	
+	
+	(r'^support/opusball/', direct_to_template, {'template': 'support/opusball.html'}),
+	(r'^support/corporate/', direct_to_template, {'template': 'support/corporate.html'}),
+	(r'^support/foundation/', direct_to_template, {'template': 'support/foundation.html'}),
+	(r'^support/volunteer/', direct_to_template, {'template': 'support/volunteer.html'}),
+	(r'^support/benefits/', direct_to_template, {'template': 'support/benefits.html'}),
+	(r'^support/$', direct_to_template, {'template': 'support/support.html'}),
+	#(r'^support/designerhouse/$', direct_to_template, {'template': 'support/designerhouse.html'}),	
+
+
+	(r'^education/youngartist/$', direct_to_template, {'template': 'education/youngartist.html'}),	
+	(r'^education/youthorchestras/johnjarboe/', direct_to_template, {'template': 'education/johnjarboe.html'}),
+	(r'^education/youthorchestras/caseybuck/', direct_to_template, {'template': 'education/caseybuck.html'}),
+	(r'^education/youthorchestras/jameshatch/', direct_to_template, {'template': 'education/jameshatch.html'}),
+	(r'^education/youthorchestras/tommcdonald', direct_to_template, {'template': 'education/tommcdonald.html'}),
+	(r'^education/youthorchestras/$', direct_to_template, {'template': 'education/youthorchestras.html'}),
+	(r'^education/auditions/$', direct_to_template, {'template': 'education/auditioninfo.html'}),
+	(r'^education/artspartners/', direct_to_template, {'template': 'education/artspartners.html'}),
+	(r'^education/orchestraandyou/', direct_to_template, {'template': 'education/orchestraandyou.html'}),
+	(r'^education/childrensconcerts/', direct_to_template, {'template': 'education/childrensconcerts.html'}),
+	(r'^education/teachers/', direct_to_template, {'template': 'education/teachers.html'}),
+	(r'^education/$', direct_to_template, {'template': 'education/programs.html'}),
+	
+
+	(r'^visit/directions/', direct_to_template, {'template': 'visit/directions.html'}),
+	
+	#(r'^(?i)offers/mw5/$', direct_to_template, {'template': 'concerts/mw5offer.html'}),
+	#(r'^(?i)offers/pops4/$', direct_to_template, {'template': 'concerts/pops4offer.html'}),
+)
+
+urlpatterns += patterns('arkansassymphony.staff_board.views',
+	url(r'^about$', 'about', name="about"),
+	url(r'^connect/contactus/', 'contactus', name="contactus"),
+)
+
+urlpatterns += patterns('arkansassymphony.concerts.views',
+	(r'^concerts/subscriptions/', 'subscriptionPage'),
+
+	(r'^(?i)irresistible/', 'subscriptionPage'),
+	
+	(r'^concerts/masterworks/(?P<display>\w+)/(?P<season>[\d-]+)/$', 'mwPage'),
+	(r'^concerts/pops/(?P<display>\w+)/(?P<season>[\d-]+)/$', 'popsPage'),
+	(r'^concerts/chamber/(?P<display>\w+)/(?P<season>[\d-]+)/$', 'chamberPage'),
+	(r'^concerts/all/(?P<display>\w+)/(?P<season>[\d-]+)/$', 'concertsPage'),
+	
+	(r'^concerts/(?P<urlName>[\w-]+)/', 'showDetail'),
+	
+	(r'^artists/(?P<urlName>[\w-]+)/(?P<showUrlName>[\w-]+)/', 'artistPage'),
+
+	(r'^themusic/notes/(?P<urlName>[\w-]+)/(?P<showUrlName>[\w-]+)/', 'noteDetail'),
+	(r'^themusic/notes/(?P<sortBy>[\w-]+)/', 'notePage'),
+	
+	(r'^(?i)education/freekids/$', 'freeKids'),
+	(r'^(?i)freekids/$', 'freeKids'),
+	
+)
+
+
+urlpatterns += patterns('arkansassymphony.people.views',
+	(r'^themusic/orchestra/(?P<playerId>\w+)/', 'orchestraBio'),
+	(r'^themusic/orchestra/', 'orchestraPage'),
+)
+
+
+urlpatterns += patterns('arkansassymphony.comments.views',
+	(r'^welcome/comment/', 'welcomeForm'),
+	(r'^welcome/$', 'welcomePage'),
+        (r'^connect/event/(?P<showUrl>\w+)/viewcomments/', 'eventViewComments'),
+
+)
+
+urlpatterns += patterns('arkansassymphony.youthcalendar.views',
+        (r'^education/youthorchestras/schedule/(?P<group>\w+)/', 'schedule'),
+)
+

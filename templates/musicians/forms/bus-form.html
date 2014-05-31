@@ -1,0 +1,94 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+		<div id="mus-title">
+			Bus Transportation Form - {{  concert_object.name  }}
+		</div><br/>
+		<hr/>
+		
+		{% if concert_object.venue == None %}
+		<h5>Venue Information TBA</h5>
+		{% else %}
+		<h5>Venue Information</h5>
+		
+		
+		<a href="/musicians/venues/{{  concert_object.venue.url_name  }}/">{{  concert_object.venue  }}</a><br/>
+		{{  concert_object.venue.address  }}<br/>
+		{{  concert_object.venue.city }}, {{  concert_object.venue.state  }} {{  concert_object.venue.zip_code  }}<br/>
+	
+		{% endif %}
+		<hr/>
+		{% if schedule %}
+		<h5>Transportation Schedule</h5>
+		{% for item in schedule %}
+		<p><i>{{  item.schedule_item  }}</i></p>
+		{% endfor %}
+		<hr/>
+		<br/>
+		{% else %}
+		{% endif %}
+	
+		<p>Please fill out the form whether you are riding the bus our driving yourself.</p>
+		<p>Form must be filled out at least one week in advance of the event.  After that date please email the <a href="mailto:drenfro@arkansassymphony.org">Personnel Manager</a></p>
+		
+		<form action="" method="post">{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="row">
+				<div class="six columns">
+					<div class="fieldWrapper">
+						{{ form.name.errors }}
+						<label for="id_name">Your name:</label>
+						{{ form.name }}
+					</div>
+				</div>
+				<div class="six columns">
+					<div class="fieldWrapper">
+						{{ form.email.errors }}
+						<label for="id_email">Your email:</label>
+						{{ form.email }}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.riding.errors }}
+						<label for="id_riding"><span class=>Riding?</span></label>
+						{{ form.riding }}
+						<br/>
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.boarding.errors }}
+						<label for="id_boarding"><span class=>Where will you board?</span></label>
+						{{ form.boarding }}
+						<br/>
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.meal.errors }}
+						<label for="id_meal"><span class=>Meal choice</span></label>
+						{{ form.meal }}
+						<br/>
+					</div>
+				</div>
+			</div>
+			<br/>
+				<p><input type="submit" value="Submit request" /></p>
+		</form>
+		{% if concert_object.venue == None %}
+		{% else %}
+		<br/><a href="/musicians/venues/{{  concert_object.venue.url_name  }}/">Driving yourself?  Click here for directions.</a>
+		{% endif %}
+	{% endblock %}
+	{% block link-back %}
+	<br/>
+	<a href="/musicians/bus-info/">Back to Bus Schedule List</a><br/>
+	<a href="/musicians/">Musician Home</a>
+	{% endblock %}
+	{% block reveal %}
+		
+
+	{% endblock %}

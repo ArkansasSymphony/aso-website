@@ -1,0 +1,67 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block side-nav %}
+		<div class="two columns">
+		</div>
+	{% endblock %}
+	
+	{% block musician-content %}
+	
+	<!--Staff Members------------------------------------------------------------------------------>
+		<div id="staff-directory">
+			<div id="mus-title">Staff</div><br/><br/>
+				{% if staff_list %}
+					<b>Artistic</b><br/><br/>
+					{% for person in staff_list %}
+						{% if person.department == "artistic" %}
+							<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+							{{  person.title  }}<br/>
+							{{  person.phone  }}<br/>
+						{% endif %}
+					{% endfor %}
+					
+					<b>Administration</b><br/><br/>
+					{% for person in staff_list %}
+						{% if person.department == "administration" %}
+							<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+							{{  person.title  }}<br/>
+							{{  person.phone  }}<br/><br/>
+						{% endif %}
+					{% endfor %}
+					
+					<b>Development and Marketing</b><br/><br/>
+					{% for person in staff_list %}
+						{% if person.department == "development/marketing" %}
+							<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+							{{  person.title  }}<br/>
+							{{  person.phone  }}<br/><br/>
+						{% endif %}
+					{% endfor %}
+					
+					<b>Education and Outreach</b><br/><br/>
+					{% for person in staff_list %}
+						{% if person.department == "education" %}
+							<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+							{{  person.title  }}<br/>
+							{{  person.phone  }}<br/><br/>
+						{% endif %}
+					{% endfor %}
+					
+					<b>Operations</b><br/><br/>
+					{% for person in staff_list %}
+						{% if person.department == "operations" %}
+							<a href="mailto: {{  person.email  }}" class="orange">{{  person.name  }}</a><br/>
+							{{  person.title  }}<br/>
+							{{  person.phone  }}<br/><br/>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			</div>
+	
+	{% endblock %}
+	
+	{% block link-back %}
+	<br/>
+		<a href="/musicians/">Musician Home</a>
+	
+	{% endblock %}

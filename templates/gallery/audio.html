@@ -1,0 +1,22 @@
+{% extends "gallery/gallery_base.html" %}
+{% block title_detail %}Audio{% endblock %}
+
+{% block post_nav %}
+	<td width="700" valign="top">
+	<div id="content">
+		<table width="650">
+			<br/><br/>
+			<div class="title-heading">Arkansas Symphony Audio</div>
+			<br/><br/>
+		{% if audio %}
+			{% for clip in audio %}
+				{{ clip.name }}<br/>
+				{{  clip.embed_link|safe  }}<br/>
+			{% endfor %}
+		{% endif %}	
+		</table>
+	</div>
+	</table>
+	</td>
+
+{% endblock %}

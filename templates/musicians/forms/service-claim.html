@@ -1,0 +1,310 @@
+{% extends "musicians/musicians.html" %}
+
+	{% block musician-content %}
+		<div id="mus-title">
+			Service Claim Form
+		</div><br/>
+		
+		<p>Submit a separate form for each concert/service week.</p>
+		
+		<p>* indicates required field</p>
+		
+		<form action="" method="post">{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="three columns">
+				<div class="fieldWrapper">
+					{{ form.form_type.errors }}
+					<label for="id_form_type">*Claim Type:</label>
+					{{ form.form_type }}
+				</div>
+			</div>
+			<div class="three columns">
+				<div class="fieldWrapper">
+					{{ form.name.errors }}
+					<label for="id_name">*Your name:</label>
+					{{ form.name }}
+				</div>
+			</div>
+			<div class="three columns">
+				<div class="fieldWrapper">
+					{{ form.email.errors }}
+					<label for="id_email">*Your email:</label>
+					{{ form.email }}
+				</div>
+			</div>
+			<div class="three columns">
+				<div class="fieldWrapper">
+					{{ form.service.errors }}
+					<label for="id_service"><span class=>*Concert</span></label>
+					{{ form.service }}
+					<br/>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div class="fieldWrapper">
+					{{ form.other_service.errors }}
+					<label for="id_other_service">If "Other", please explain:</label>
+					{{ form.other_service }}
+					<br/>
+				</div>
+			</div>
+			<hr/>
+			<div id="master-title">Doubling</div>
+			<i>${{  wage_list_current.doubling  }} per double per service.</i><br/>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.principal_instrument.errors }}
+					<label for="id_principal_instrument">Principal instrument</label>
+					{{ form.principal_instrument }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.double_1.errors }}
+					<label for="id_double_1">Double 1</label>
+					{{ form.double_1 }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.double_2.errors }}
+					<label for="id_double_2">Double 2</label>
+					{{ form.double_2 }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.double_3.errors }}
+					<label for="id_double_3">Double 3</label>
+					{{ form.double_3 }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.double_4.errors }}
+					<label for="id_double_4">Double 4</label>
+					{{ form.double_4 }}
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="fieldWrapper">
+					{{ form.service_number.errors }}
+					<label for="id_service_number">Number of services for doubles</label>
+					{{ form.service_number }}
+				</div>
+				<br/>
+			</div>
+			<br/><br/>
+			<hr/>
+			<div id="master-title">Cartage</div>
+			<i>Marimba cartage is ${{  wage_list_current.marimba_cartage  }}, vibes cartage is ${{  wage_list_current.vibes_cartage  }}.<br/>  All others listed in Master Agreement are ${{  wage_list_current.standard_cartage  }}.</i>
+				<div class="fieldWrapper">
+					{{ form.cartage.errors }}
+					<label for="cartage"><span class=>Cartage claim (select all that apply)</span></label>
+					{{ form.cartage }}
+				</div>
+			<hr/>
+				<div id="master-title">Per Diem</div>
+				<i>${{  wage_list_current.per_diem_single  }} single, ${{  wage_list_current.per_diem_double  }} double<br/>
+				   ${{  wage_list_current.breakfast  }} breakfast, ${{  wage_list_current.lunch  }} lunch, ${{  wage_list_current.dinner  }} dinner</i>
+				<div class="fieldWrapper">
+					{{ form.diem_type.errors }}
+					<label for="id_diem_type">Per diem claim:</label>
+					{{ form.diem_type }}
+				</div>
+			<hr/>
+			<div id = "master-title">Mileage Calculation</div><br/>
+			<i>Please enter the cities for each leg of your claim. <b>e.g. Little Rock, AR</b>.  State must be included for proper mileage processing.<br/>Mileage is ${{  wage_list_current.mileage  }}/mile</i>
+			<div class="row">
+				<br/>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.date1.errors  }}
+						<label for="id_date1">Date:</label>
+						{{  form.date1  }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.round1.errors  }}
+						<label for="id_round1">Round trip?</label>
+						{{  form.round1  }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg1a.errors }}
+						<label for="id_leg1a">Start:</label>
+						{{ form.leg1a }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg1b.errors }}
+						<label for="id_leg1b">Destination:</label>
+						{{ form.leg1b }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.date2.errors  }}
+						<label for="id_date2">Date:</label>
+						{{  form.date2  }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.round2.errors  }}
+						<label for="id_round2">Round trip?</label>
+						{{  form.round2  }}
+					</div>						
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leb2a.errors }}
+						<label for="id_leg2a">Start:</label>
+						{{ form.leg2a }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg2b.errors }}
+						<label for="id_leg2b">Destination:</label>
+						{{ form.leg2b }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.date3.errors  }}
+						<label for="id_date3">Date:</label>
+						{{  form.date3  }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.round3.errors  }}
+						<label for="id_round3">Round trip?</label>
+						{{  form.round3  }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leb3a.errors }}
+						<label for="id_leg3a">Start:</label>
+						{{ form.leg3a }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg3b.errors }}
+						<label for="id_leg3b">Destination:</label>
+						{{ form.leg3b }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.date4.errors  }}
+						<label for="id_date4">Date:</label>
+						{{  form.date4  }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.round4.errors  }}
+						<label for="id_round4">Round trip?</label>
+						{{  form.round4  }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leb4a.errors }}
+						<label for="id_leg4a">Start:</label>
+						{{ form.leg4a }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg4b.errors }}
+						<label for="id_leg4b">Destination:</label>
+						{{ form.leg4b }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.date5.errors  }}
+						<label for="id_date5">Date:</label>
+						{{  form.date5  }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.round5.errors  }}
+						<label for="id_round5">Round trip?</label>
+						{{  form.round5  }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leb5a.errors }}
+						<label for="id_leg5a">Start:</label>
+						{{ form.leg5a }}
+					</div>
+				
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg5b.errors }}
+						<label for="id_leg5b">Destination:</label>
+						{{ form.leg5b }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.date6.errors  }}
+						<label for="id_date6">Date:</label>
+						{{  form.date6  }}
+					</div>
+				</div>
+				<div class="two columns">
+					<div class="fieldWrapper">
+						{{  form.round6.errors  }}
+						<label for="id_round6">Round trip?</label>
+						{{  form.round6  }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leb6a.errors }}
+						<label for="id_leg6a">Start:</label>
+						{{ form.leg6a }}
+					</div>
+				</div>
+				<div class="four columns">
+					<div class="fieldWrapper">
+						{{ form.leg6b.errors }}
+						<label for="id_leg6b">Destination:</label>
+						{{ form.leg6b }}
+					</div>
+					<br/>
+				</div>
+				<hr/>
+				<div id="master-title">Comments</div>
+				<div class="fieldWrapper">
+					{{ form.comments.errors }}
+					<label for="id_comments">Please enter any additional information here:</label>
+					{{ form.comments }}
+				</div>
+			</div>
+			
+			<p><input type="submit" value="Submit request" /></p>
+		</form>
+		
+		<p><i>Please submit a new form for each concert/service week.  You will receive an email confirmation
+		of your submission immediately.</i></p>
+		
+	{% endblock %}
+	
+	{% block reveal %}
+		
+
+	{% endblock %}

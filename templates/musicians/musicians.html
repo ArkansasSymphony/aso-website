@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+	<title>Arkansas Symphony Orchestra | Musician Portal</title>
+
+	<link rel="stylesheet" href="{{  STATIC_URL  }}css/foundation3.css">
+	<link rel="stylesheet" href="{{  STATIC_URL  }}css/musicians.css">
+	
+	<script src="{{ STATIC_URL  }}javascripts/jquery.reveal.js"></script>
+	
+</head>
+
+<body>
+
+	<div class="musician-header">
+		<div class="row">
+			<div class="six columns">
+				<div id="logo">
+					<a href="/"><img src="{{  MEDIA_URL  }}images/asologo.png" alt="ASO Logo"/></a>
+				</div>
+			</div>
+			<div class="six columns">
+				<div id="social">
+					<a href="http://www.facebook.com/arkansassymphony"><img src="{{ STATIC_URL  }}images/facebook.png"/></a>
+					<a href="http://www.twitter.com/ARsymphony"><img src="{{ STATIC_URL  }}images/twitter.png"/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+	
+		<!-------------Main Navigation----------------------------------------------------->
+		<!-------------Uses javascript at page bottom-------------------------------------->
+		
+		<div id="main-navigation">
+			<div class="row">
+				<div class="twelve columns">
+					<ul class="nav-bar">
+						<li>
+							<a href="/musicians/">Musicians Home</a>
+						</li>
+						
+						<li class="has-flyout">
+							<a href="/musicians/information/">Performance Info</a>
+								<a href="/musicians/concert-info/" class="flyout-toggle"><span> </span></a>
+									<ul class="flyout">
+										<li><a href="/musicians/concert-info/">Instrumentation/Repertoire & Schedules</a></li>
+										<li><a href="/musicians/venues/">Maps & Directions</a></li>
+										<li><a href="/musicians/bus-info/">Bus Schedules</a></li>
+									</ul>
+						</li>
+						
+						<li class="has-flyout">
+							<a href="/musicians/forms/">Forms and HR</a>
+							<a href="/musicians/forms/" class="flyout-toggle"><span> </span></a>
+								<ul class="flyout">
+									<li><a href="/musicians/musician-forms/">Musician Forms</a></li>
+									<li><a href="/musicians/hr/">Human Resources Forms</a></li>
+									<li><a href="/musicians/calendars/reservations/">Reservation Forms</a></li>
+								</ul>
+						</li>
+						
+						<li class="has-flyout">
+							<a href="/musicians/contact/">Contacts</a>
+							<a href="/musicians/contact/" class="flyout-toggle"><span> </span></a>
+								<ul class="flyout">
+									<li><a href="{{  MEDIA_URL  }}{{  concert_doc.file  }}">ASO Contract Musicians</a></li>
+									<li><a href="/musicians/staff-contact/">ASO Staff Directory</a></li>
+								</ul>
+						</li>
+						
+						<li class="has-flyout">
+							<a href="/musicians/calendars/">Calendars</a>
+							<a href="/musicians/calendars/" class="flyout-toggle"><span> </span></a>
+								<ul class="flyout">
+									<li><a href="http://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=master.calendar%40arkansassymphony.org&ctz=America/Chicago">Master Calendar</a></li>
+									<li><a href="https://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=arkansassymphony.org_o21a1min8nfvetrqg2j31gdk50%40group.calendar.google.com&ctz=America/Chicago&pvttk=5edffb1350f884bea07583447fce7e5c">Byrne Hall</a></li>
+									<li><a href="http://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=arkansassymphony.org_vskn6ucm99nv7tj8t8ak4k04lg%40group.calendar.google.com&ctz=America/Chicago">Quartets</a></li>
+									<li><a href="http://www.google.com/calendar/hosted/arkansassymphony.org/embed?src=van.calendar%40arkansassymphony.org&ctz=America/Chicago">Van</a></li>
+									<li><a href="/musicians/calendars/reservations/">Reservation Forms</a></li>
+								</ul>
+						</li>
+						
+						<li class="has-flyout">
+							<a href="/musicians/info/">Information</a>
+							<a href="/musicians/info/" class="flyout-toggle"><span> </span></a>
+								<ul class="flyout">
+									<li><a href="/musicians/MA/ma-contents/">Master Agreement</a></li>
+									<li><a href="/musicians/wage-chart/">Wage Chart</a></li>
+									<li><a href="/musicians/faq/">FAQ</a></li>
+								</ul>
+						</li>
+						
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!---------------------End navigation-------------------------------------------------------------------->
+		
+		
+		
+		<!--------------------------------Page Content----------------------------------------------------------->
+		<div class="row">
+			{% block side-nav %}
+					<div class="two columns">
+						
+					</div>
+			{% endblock %}
+			<div class="eight columns">
+			
+			{% block musician-content %}
+			
+				<div id="mus-title">
+					Welcome ASO Musicians!
+				</div>
+				<br/><br/>
+				<p>Welcome to the Arkansas Symphony Orchestra Musician Website, a resource
+				for all musicians engaged to perform with the Arkansas Symphony Orchestra.  
+				Throughout these pages you will find information regarding the current season.<br/>
+				<br/>
+				Please submit an <a href="mailto:drenfro@arkansassymphony.org">email</a> with any 
+				questions or suggestions for site improvement.</p>
+				
+			{% endblock %}
+			
+			{% block link-back %}
+			
+			{% endblock %}
+			
+			</div>
+			{% block side-nav-layout %}
+			<!--this block is to be left blank on pages needing a four/eight column layout-->
+				<div class="two columns">
+				</div>
+			{% endblock %}
+		</div>
+			
+
+		<div class="footer">
+		<hr/>
+		<div class="row">
+			<div class="twelve columns">
+				<p>Season Sponsors:</p>
+			</div>
+			
+			</div>
+			<div id="sponsor-block">
+				<div class="row">
+					<div class="twelve columns">
+						<a href="http://www.acxiom.com"><img src="{{  STATIC_URL  }}images/sponsors/acxiom.png" alt="Acxiom"></a>
+						<a href="http://www.aa.com"><img src="{{  STATIC_URL  }}images/sponsors/aa.png" alt="American Airlines"></a>
+						<img src="{{  STATIC_URL  }}images/sponsors/stella.png" alt="Stella Boyle Smith">
+						<a href="http://www.arkansasarts.org"><img src="{{  STATIC_URL  }}images/sponsors/AR_Arts_Council.jpg" alt="Arkansas Arts Council"></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="twelve columns">
+						<p><b>Arkansas Symphony Orchestra</b>&emsp;&emsp;(501)666-1761&emsp;&emsp;P.O. Box 7328&emsp;&emsp;Little Rock, AR 72217</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	{% block reveal %}
+	
+	{% endblock %}
+	
+	<script src="{{ STATIC_URL  }}javascripts/app.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/jquery.customforms.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/jquery.min.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/jquery.orbit-1.4.0.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/jquery.placeholder.min.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/jquery.reveal.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/jquery.tooltips.js"></script>
+	<script src="{{ STATIC_URL  }}javascripts/modernizr.foundation.js"></script>
+	
+	<script>
+
+	/* DROPDOWN NAV ------------- */	
+	
+  jQuery(document).ready(function ($) {
+  var lockNavBar = false;
+  /* Windows Phone, sadly, does not register touch events :( */
+  if (Modernizr.touch || navigator.userAgent.match(/Windows Phone/i)) {
+    $('.nav-bar a.flyout-toggle').on('click.fndtn touchstart.fndtn', function(e) {
+      e.preventDefault();
+      var flyout = $(this).siblings('.flyout').first();
+      if (lockNavBar === false) {
+        $('.nav-bar .flyout').not(flyout).slideUp(500);
+        flyout.slideToggle(500, function(){
+          lockNavBar = false;
+        });
+      }
+      lockNavBar = true;
+    });
+    $('.nav-bar>li.has-flyout').addClass('is-touch');
+  } else {
+    $('.nav-bar>li.has-flyout').hover(function() {
+      $(this).children('.flyout').show();
+    }, function() {
+      $(this).children('.flyout').hide();
+    });
+  }
+  });
+
+	</script>
+
+	
+	
+</body>
+
+</html>

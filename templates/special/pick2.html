@@ -1,0 +1,153 @@
+{% extends "special/special_base.html" %}
+
+{% block title_detail %}
+	Pick3 Sale
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="920" valign="top">
+		<div id="content_special">
+			<br><br>
+			<a href="http://tickets.arkansassymphony.org/"><img src="/media/images/pick3.jpg" alt="Pick 3 Sale"/></a><br><br>
+			<div style="text-align:left; font-size:18px">
+				Save up to 60% off best available seats	when you pick three or more concerts from our exciting 2013-2014 season.  Just <b>use discount code "PICK3" at <a href="http://tickets.arkansassymphony.org/public">online checkout</a></b> to get the best available seats today!  Hurry -  offer extended to 5pm Monday, October 7.<br/><br/>
+			</div>	
+				<div style="padding: 0 0px 0 10px;">
+				<table width="920" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td width="460" valign="top">
+						
+						<div style="font-size: 24px; margin-bottom: 5px;"><a name="masterworks">Masterworks</a></div><br>
+							
+						{% for show in mwList %}
+						{% if show.name == "Tchaikovsky & Rite of Spring" %}
+
+						{% else %}	
+							
+							<div class="event">	
+								
+								<div class="event_left">
+									{% if show.small_picture %}
+										<img src="/media/{{ show.small_picture }}">
+									{% endif %}
+								</div>
+				
+								
+								<div class="event_right">
+									<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+									
+									<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+									<br>
+									<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+								
+									{{ show.short_desc|linebreaks }}
+									<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+									
+								</div>
+								
+							</div>	
+							<br>
+						{% endif %}
+						{% endfor %}
+						
+				
+					</td>
+					
+					<td width="460" valign="top">
+				
+						<div style="font-size: 24px; margin-bottom: 5px;"><a name="pops">Pops Live!</a></div><br>
+							
+						{% for show in popsList %}
+							
+							
+							<div class="event">	
+								
+								<div class="event_left">
+									{% if show.small_picture %}
+										<img src="/media/{{ show.small_picture }}">
+									{% endif %}
+								</div>
+				
+								
+								<div class="event_right">
+									<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+									
+									<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+									<br>
+									<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+								
+									{{ show.short_desc|linebreaks }}
+									<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+									
+								</div>
+								
+							</div>	
+							<br>
+							
+						{% endfor %}
+								
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="460" colspan="2" valign="top">
+							
+						<br><div style="font-size: 24px; margin-bottom: 5px;"><a name="chamber">River Rhapsodies Chamber</a></div><br>
+					</td>
+				</tr>
+				
+				<tr>
+					
+					<td width="460" valign="top">
+					
+						{% for show in chamberList %}
+						{% if show.name = "Brahms the Romantic" %}
+
+						{% else %}
+	
+							{% ifequal forloop.counter0 3 %}
+								</td>
+								<td width="460">
+							{% endifequal %}
+							
+							<div class="event">	
+								
+								<div class="event_left">
+									{% if show.small_picture %}
+										<img src="/media/{{ show.small_picture }}">
+									{% endif %}
+								</div>
+				
+								
+								<div class="event_right">
+									<font size="5">{{ show.short_month }} {{ show.short_day }}</font><br>
+									
+									<a href="/concerts/{{ show.url_name }}" class="blue">{{ show.name }}</a>
+									<br>
+									<!--<font color="#2d9bfd">{{ show.type }}</font> -->
+								
+									{{ show.short_desc|linebreaks }}
+									<a href="/concerts/{{ show.url_name }}" class="smallBlue">Tickets & Info</a>
+									
+								</div>
+								
+							</div>	
+							<br>
+						{% endif %}
+						{% endfor %}
+							
+					</td>
+				</tr>
+				</table>
+				
+			</div>
+			
+		
+		</div>
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	
