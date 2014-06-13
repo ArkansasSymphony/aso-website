@@ -15,10 +15,10 @@ class PrimaryGuardianForm(ModelForm):
 		exclude = ["date_created","last_updated"]
 
 class StudentForm(ModelForm):
-	date_of_birth = forms.DateField(widget=SelectDateWidget(years=YEARS))
+	#date_of_birth = forms.DateField(widget=SelectDateWidget(years=YEARS))
 	class Meta:
 		model = Student
-		exclude = ["status","current_grade", "date_created","last_updated","parent_id","start_date"]
+		exclude = ["status","current_grade","date_created","last_updated","parent_id","start_date"]
 
 
 class ApplicationForm(ModelForm):

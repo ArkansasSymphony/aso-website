@@ -53,7 +53,7 @@ class Student(models.Model):
     other_phone = models.CharField(max_length=15,null=True,blank=True)
     primary_phone = models.CharField(max_length=15, choices=PRIMARY_NUMBER)
     email = models.EmailField(max_length=100)
-    date_of_birth = models.DateField()
+    #date_of_birth = models.DateField()
     current_grade = models.CharField(max_length=2,choices=GRADE_LEVEL, null=True,blank=True)
     graduating_year = models.CharField(max_length=20, choices=GRAD_YEAR, null=True, blank = False)
     instrument = models.CharField(max_length=20,choices=INSTRUMENTS, null=True,blank=True)

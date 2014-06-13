@@ -14,6 +14,8 @@ urlpatterns = patterns('',
 	(r'^about/jobs/', include('arkansassymphony.jobs.urls')),
 	(r'^accounts/login/$', 'django.contrib.auth.views.login'),
 	(r'^my_admin/jsi18n', 'django.views.i18n.javascript_catalog'),
+	(r'^insider/signup$', direct_to_template, {'template': 'connect/enews_signup.html'}),
+	(r'^insider/social$', direct_to_template, {'template': 'connect/enews_social.html'}),
 )
 
 urlpatterns += patterns('arkansassymphony.views',

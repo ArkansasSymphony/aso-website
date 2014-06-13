@@ -7,7 +7,7 @@ class ShowAdmin(admin.ModelAdmin):
 	list_filter = ['end_date']
 	list_display = ('name', 'type', 'season')
 class PieceAdmin(admin.ModelAdmin):
-	search_fields = ['title']
+	search_fields = ['title', 'composer']
 	list_display = ('title', 'composer')
 class ConcertAdmin(admin.ModelAdmin):
 	search_field = ['show']
