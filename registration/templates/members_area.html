@@ -1,0 +1,72 @@
+{% extends 'asyo/base.html' %}
+{% load url from future %}
+{% block title %}ASYO Parents Dashboard{% endblock %}
+
+{% block content %}
+    <button class="updateButton" onclick="window.location.href='/asyo/logout/'">logout</button>
+	<h1>ASYO Parents Dashboard</h1>
+    <h3>Welcome {{ user.first_name }} ! (not you? <a href="/asyo/logout">Click here to logout)</a></h3>
+  	<hr>
+    <button class="updateButton" onclick="window.location.href='/asyo/student'">Register New Student</button><br/>
+    <button class="updateButton" onclick="window.location.href='/asyo/update/p/{{ user.pk }}'">Update Parent Info</button>&nbsp;
+    <h4>Student(s)</h4>
+    <table>
+	{% if student_present == 'False' %}
+	    No students registered to {{ user.first_name }} {{ user.last_name }}
+	{% elif student_present == 'True' %}
+    	<tr>
+    		<th>Student</th>
+    		<th>Cell Phone</th>
+    		<th>Email</th>
+    		<th>Date Created</th>
+    		<th>Actions</th>
+    	</tr>
+	    {% for student in students %}
+	    <tr>
+	    	<td>{{ student }}</td>
+	    	<td>{{ student.cell_phone}}</td>
+	    	<td>{{ student.email}}</td>
+	    	<td>{{ student.date_created}}</td>
+	    	<td>
+	    		<button class="applyButton" onclick="window.location.href='/asyo/application/{{student.pk}}'">Ensemble Application</button>&nbsp;
+	    		<button class="updateButton" onclick="window.location.href='/asyo/update/s/{{student.pk}}'">Update Student</button>&nbsp;
+	    		<button class="deleteButton" onclick="del_student({{student.pk }})">Remove Student</button>
+	    	</td>
+	    </tr>
+	    {% endfor %}
+	    {% endif %}
+	</table>
+	<div id='infoArea'>
+		<p>{{ info }}</p>
+	</div>
+	<hr>
+	<h4>Application(s)</h4>
+	<table>
+	    {% if application_present == 'False' %}
+		No applications found for students registered to {{ user.first_name }} {{ user.last_name }}
+	    {% elif application_present == 'True' %}
+    	<tr>
+    		<th>Name</th>
+    		<th>App Year</th>
+    		<th>App Submit Date</th>
+    		<th>Applying For</th>
+    		<th>Actions</th>
+    	</tr>
+	    {% for application in applications %}
+	    <tr>
+	    	<td>{{ application }}</td>
+	    	<td>{{ application.application_year}}</td>
+	    	<td>{{ application.application_date}}</td>
+	    	<td>{{ application.applying_for}}</td>
+	    	<td>
+	    		<button class="updateButton" onclick="window.location.href='/asyo/update/app/{{application.pk}}'">Update Application</button>
+	    		<button class="deleteButton" onclick="del_application({{application.pk }})">Remove Application</button>
+	    	</td>
+	    </tr>
+	    {% endfor %}
+           {% endif %}
+	</table>
+	
+	<hr/>
+	<p>If you have any questions about this online registration system, please contact Barbara Burroughs at (501)666-1761, ext. 116 or <a href="mailto:bburroughs@arkansassymphony.org">bburroughs@arkansassymphony.org</a>
+{% endblock %}
