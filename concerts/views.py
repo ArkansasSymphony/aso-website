@@ -116,8 +116,8 @@ def artistPage(request, urlName, showUrlName):
 	
 
 def freeKids(request):
-	mwList = Show.objects.filter(type='classical').filter(end_date__gte= datetime.date.today()).filter(season='2013-2014').order_by('end_date')
-	popsList = Show.objects.filter(type='pops').filter(end_date__gte= datetime.date.today()).filter(season='2013-2014').order_by('end_date')
+	mwList = Show.objects.filter(type='classical').filter(end_date__gte= datetime.date.today()).filter(season='2014-2015').order_by('end_date')
+	popsList = Show.objects.filter(type='pops').filter(end_date__gte= datetime.date.today()).filter(season='2014-2015').order_by('end_date')
 	
 	context = RequestContext(request)
 	return render_to_response('education/freekids.html', {'mwList': mwList, 'popsList': popsList}, context_instance=context)

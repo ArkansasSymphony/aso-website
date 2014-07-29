@@ -27,7 +27,7 @@ a:hover {
 	margin: 0px auto;
 	padding: 0px;
 	border: 0;
-	width: 888px;
+	width: 1200px;
 	background-color: #fff;
 }
 
@@ -79,7 +79,8 @@ body {
 	width: 100%;
 }
 
-#photo_banner {
+#photo_banner img{
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
@@ -189,7 +190,7 @@ body {
 }
 
 .footer {
-	width: 888px;
+	width: 1200px;
 	font-family: "Actor", "Myriad Pro", Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	text-align: center;
@@ -212,7 +213,7 @@ body {
 }
 
 .sponsor_logos img{
-	padding: 0 10px 20px 10px;
+	padding: 0 10px 20px 20px;
 }
 
 #no_logo {
@@ -268,7 +269,7 @@ body {
 /* Top menu items */
 #topnav ul {
    margin:0;
-   padding:0;
+   padding:0 0 0 20px;
    list-style:none;
    position:relative;
    right:50%;

@@ -16,9 +16,9 @@
 			<div style="font-size: 24px; margin-bottom: 5px;"><a name="top"></a>{{ venue_object.name }}</div><br/>
 			<br/>
 			{% if venue_object.venue_type == "masterworks" %}
-				<i>All <a href="/concerts/masterworks/upcoming/2014-2015/" alt="2014-2015 Stella Boyle Smith Masterworks">2014-2015 Stella Boyle Smith Masterworks Series Concerts</a> will be held in the {{ venue_object.name }}.</i><br/>
+				<i>All <a href="/concerts/masterworks/upcoming/2014-2015/" alt="2014-2015 Stella Boyle Smith Masterworks">2014-2015 Stella Boyle Smith Masterworks Series Concerts</a> will be held in the {{ venue_object.name }}.</i><a href="/media/{{ venue_object.venue_seats }}" class="orange"> Click here for a seat map.<a/><br/>
 			{% elif venue_object.venue_type == "pops" %}
-				<i>All <a href="/concerts/pops/upcoming/2014-2015/" alt="2014-2015 Acxiom Pops Live! Series">2014-2015 Acxiom Pops Live! Series Concerts</a> will be held in the {{ venue_object.name }}.</i><br/>
+				<i>All <a href="/concerts/pops/upcoming/2014-2015/" alt="2014-2015 Acxiom Pops Live! Series">2014-2015 Acxiom Pops Live! Series Concerts</a> will be held in the {{ venue_object.name }}.</i><a href="/media/{{ venue_object.venue_seats }}" class="orange"> Click here for a seat map.<a/><br/>
 			{% elif venue_object.venue_type == "chamber" %}
 				<i>All <a href="/concerts/chamber/upcoming/2014-2015/" alt="2014-2015 River Rhapsodies Series">2014-2015 River Rhapsodies Chamber Music Series Concerts</a> will be held in the {{ venue_object.name }}.</i><br/>
 			{% elif venue_object.venue_type == "inc" %}
@@ -40,12 +40,22 @@
 				<br/>
 				<img src="/media/{{ venue_object.venue_image }}" alt="{{ venue_object.name }}"/> 
 			{% else %}
-				<a href="{{ venue_object.alt_map_link }}" class="orange" target="_blank"><b>Click here for a map from {{ venue_object.second_from }}.</b></a><br/>			
+				<a href="{{ venue_object.alt_map_link }}" class="orange" target="_blank"><b>Click here for a map from {{ venue_object.second_from }}.</b></a><br/>
+			{% if venue_object.name == "Maumelle Performing Arts Center" %}
+				<br/>			
+			<div id="loadImg">
+				<img src="/media/images/loading.gif"/>
+			</div>
+			<div id="drive_iframe">
+				<iframe width="560" height="315" name=iframe src="http://www.youtube.com/embed/VrZgR3edAJk" frameborder="0" allowfullscreen onload="document.getElemenetById('loadImg').style.display='none';"></iframe>
+			</div>
+			{% endif %}
+				<br/>
 				<br/>
 				<b>{{ venue_object.name }}</b><br/>			
 				<br/>
 				<img src="/media/{{ venue_object.venue_image }}" alt="{{ venue_object.name }}"/> 
-		`	{% endif %}	
+			{% endif %}
 			
 		</div>
 	</td>

@@ -31,6 +31,18 @@ sponsor.name }}" border="0"></a><br><br><br>
 	<br/><br/>
 	<a href="http://www.point941.com"><img src="{{  MEDIA_URL  }}sponsor_images/thepoint.png" alt="Media Sponsor: The Point 94.1"/></a>
 	{% endif %}
+
+	{% if show.type == "chamber" %}
+	<font size="1">Presenting Sponsor:</font>
+	<br/><br/>
+	<a href="#"><img src="{{  MEDIA_URL  }}sponsor_images/landers_logo.jpg" alt="Presenting Sponsor: Landers Fiat"/></a>
+	{% endif %}
+
+	{% if show.type == "neighborhood" %}
+	<font size="1">Presenting Sponsor:</font>
+	<br/><br/>
+	<a href="#"><img src="{{  MEDIA_URL  }}sponsor_images/landers_logo.jpg" alt="Presenting Sponsor: Landers Fiat"/></a>
+	{% endif %}
 {% endblock %}
 
 

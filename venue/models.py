@@ -24,6 +24,7 @@ class Venue(models.Model):
 	second_from = models.CharField(max_length=100, null = True, blank = True)
 	first_directions = models.TextField(null = True, blank = True)
 	second_directions = models.TextField(null = True, blank = True)
+	venue_seats = models.ImageField(upload_to="venue_images", null = True, blank = True)
 	venue_image = models.ImageField(upload_to="venue_images", null = True, blank = True)
 	address = models.CharField(max_length="100", null = True, blank = True)
 	phone = models.CharField(max_length="25", null = True, blank = True)

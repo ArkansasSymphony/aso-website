@@ -29,6 +29,8 @@ urlpatterns += patterns('arkansassymphony.views',
 	(r'^youth-rock$', direct_to_template,  {'template': 'youthrock.html'}),
 	(r'^renovation$', direct_to_template, {'template': 'concerts/renovation_faq.html'}),
 	(r'^street-party$', direct_to_template, {'template': 'bbj_party.html'}),
+	(r'^guarantee$', direct_to_template, {'template': 'concerts/guarantee.html'}),
+	(r'^drive$', direct_to_template, {'template': 'concerts/drive.html'}),
 	(r'^ccg-composer-contest$', direct_to_template, {'template': 'ccg_contest.html'}),
 )
 

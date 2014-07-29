@@ -1,0 +1,287 @@
+{% extends "education/education_base.html" %}
+
+{% block title_detail %}
+	{% ifequal group "preparatory" %}
+		Preparatory Orchestra Schedule
+	{% endifequal %}
+
+	{% ifequal group "prelude" %}
+                Prelude Orchestra Schedule
+        {% endifequal %}
+
+	{% ifequal group "academy" %}
+                Academy Orchestra Schedule
+        {% endifequal %}
+
+	{% ifequal group "youth" %}
+                Youth Orchestra Schedule
+        {% endifequal %}
+
+{% endblock %}
+
+
+{% block post_nav %}
+
+	<td width="700" valign="top">
+		<div id="content">
+			<br><br>
+			
+			<div style="float: right; display: inline; padding: 40px;">
+			</div>
+			
+			<div style="font-size: 18px; margin-bottom: 5px;">
+
+				{% ifequal group "preparatory" %}
+                Preparatory Orchestra Schedule<br/><br/>
+		{% for event in eventList %}
+			<div style="font-size: 18px; color: #2d9bfd;"> 
+					 {% ifequal event.date.weekday 0 %}
+                                                Monday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 1 %}
+                                                Tuesday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 2 %}
+                                                Wednesday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 3 %}
+                                                Thursday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 4 %}
+                                                Friday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 5 %}
+                                                Saturday,
+                                        {% endifequal %}
+                                         {% ifequal event.date.weekday 6 %}
+                                                Sunday,
+                                        {% endifequal %}
+
+
+
+					{% ifequal event.date.month 1 %}
+                                              January
+                                        {% endifequal %}
+					{% ifequal event.date.month 2 %}
+                                              February
+                                        {% endifequal %}
+					{% ifequal event.date.month 3 %}
+                                              March
+                                        {% endifequal %}
+
+					{% ifequal event.date.month 4 %}
+                                              April
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 5 %}
+                                                May
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 6 %}
+                                                June
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 7 %}
+                                                July
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 8 %}
+                                                August
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 9 %}
+                                                September
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 10 %}
+                                                October
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 11 %}
+                                                November
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 12 %}
+                                                December
+                                        {% endifequal %}
+
+                                        {{ event.date.day }}, {{ event.date.year }}</div>
+					<b>{{ event.name }}</b><br>
+					Location: {{ event.location }}<br>
+					Time: {{ event.time }}<br>
+
+					{{ event.description|linebreaks }}
+
+					<br><br>
+
+		{% endfor %}		
+        {% endifequal %}
+
+        {% ifequal group "prelude" %}
+                Prelude Orchestra Schedule <br/><br/>
+		{% for event in eventList %}
+			<div style="font-size: 18px; color: #2d9bfd;"> 
+					 {% ifequal event.date.weekday 0 %}
+                                                Monday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 1 %}
+                                                Tuesday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 2 %}
+                                                Wednesday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 3 %}
+                                                Thursday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 4 %}
+                                                Friday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 5 %}
+                                                Saturday,
+                                        {% endifequal %}
+                                         {% ifequal event.date.weekday 6 %}
+                                                Sunday,
+                                        {% endifequal %}
+
+
+
+					{% ifequal event.date.month 1 %}
+                                              January
+                                        {% endifequal %}
+					{% ifequal event.date.month 2 %}
+                                              February
+                                        {% endifequal %}
+					{% ifequal event.date.month 3 %}
+                                              March
+                                        {% endifequal %}
+
+					{% ifequal event.date.month 4 %}
+                                              April
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 5 %}
+                                                May
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 6 %}
+                                                June
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 7 %}
+                                                July
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 8 %}
+                                                August
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 9 %}
+                                                September
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 10 %}
+                                                October
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 11 %}
+                                                November
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 12 %}
+                                                December
+                                        {% endifequal %}
+
+                                        {{ event.date.day }}, {{ event.date.year }}</div>
+					<b>{{ event.name }}</b><br>
+					Location: {{ event.location }}<br>
+					Time: {{ event.time }}<br>
+
+					{{ event.description|linebreaks }}
+
+					<br><br>
+
+		{% endfor %}		
+        {% endifequal %}
+
+        {% ifequal group "academy" %}
+                Academy Orchestra Schedule<br/><br/>
+		{% for event in eventList %}
+			<div style="font-size: 18px; color: #2d9bfd;"> 
+					 {% ifequal event.date.weekday 0 %}
+                                                Monday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 1 %}
+                                                Tuesday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 2 %}
+                                                Wednesday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 3 %}
+                                                Thursday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 4 %}
+                                                Friday,
+                                        {% endifequal %}
+                                        {% ifequal event.date.weekday 5 %}
+                                                Saturday,
+                                        {% endifequal %}
+                                         {% ifequal event.date.weekday 6 %}
+                                                Sunday,
+                                        {% endifequal %}
+
+
+
+					{% ifequal event.date.month 1 %}
+                                              January
+                                        {% endifequal %}
+					{% ifequal event.date.month 2 %}
+                                              February
+                                        {% endifequal %}
+					{% ifequal event.date.month 3 %}
+                                              March
+                                        {% endifequal %}
+
+					{% ifequal event.date.month 4 %}
+                                              April
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 5 %}
+                                                May
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 6 %}
+                                                June
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 7 %}
+                                                July
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 8 %}
+                                                August
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 9 %}
+                                                September
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 10 %}
+                                                October
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 11 %}
+                                                November
+                                        {% endifequal %}
+                                        {% ifequal event.date.month 12 %}
+                                                December
+                                        {% endifequal %}
+
+                                        {{ event.date.day }}, {{ event.date.year }}</div>
+					<b>{{ event.name }}</b><br>
+					Location: {{ event.location }}<br>
+					Time: {{ event.time }}<br>
+
+					{{ event.description|linebreaks }}
+
+					<br><br>
+
+		{% endfor %}		
+
+
+			
+		
+		</div>
+
+        {% endifequal %}
+
+        {% ifequal group "youth" %}
+                Youth Orchestra Schedule
+		<br/><br/>
+		<iframe src="http://www.google.com/calendar/embed?src=na461q02m1f213qtsvnevbdleg%40group.calendar.google.com&ctz=America/Chicago" style="border: 0" width="635" height="600" frameborder="0" scrolling="no"></iframe>
+        {% endifequal %}
+
+			</div><br><br>
+
+
+	</td>
+	</tr>
+	</table>
+			
+{% endblock %}	

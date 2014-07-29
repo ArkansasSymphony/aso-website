@@ -1,48 +1,12 @@
 
 
+
+
 {% extends "base.html" %}
 
 
 {% block title_detail %}
 	Philip Mann, Music Director
-{% endblock %}
-
-
-add  comment {% comment %}{% endcomment %}tags around the slideshow block to disable the slideshow
-{% block slideshow %}
-	
- 	function slideSwitch()
-	{
-	    var $active = $('#slideshow span.active');
-	
-	    if ( $active.length == 0 ) $active = $('#slideshow span:last');
-	
-	    // use this to pull the images in the order they appear in the markup
-	    var $next =  $active.next().length ? $active.next()
-	        : $('#slideshow span:first');
-	
-	    // uncomment the 3 lines below to pull the images in random order
-	    
-	    // var $sibs  = $active.siblings();
-	    // var rndNum = Math.floor(Math.random() * $sibs.length );
-	    // var $next  = $( $sibs[ rndNum ] );
-	
-	
-	    $active.addClass('last-active');
-	
-	    $next.css({opacity: 0.0})
-	        .addClass('active')
-	        .animate({opacity: 1.0}, 1000, function() {
-	            $active.removeClass('active last-active');
-	        });
-	}
-
-	$(function()
-	{
-   	 	setInterval( "slideSwitch()", 5000 );
-	});
-	
-	
 {% endblock %}
 
 {% block pre_nav %}
@@ -61,17 +25,9 @@ add  comment {% comment %}{% endcomment %}tags around the slideshow block to dis
 			<td width="960" bgcolor="#ffffff">
 				<div id="slideshow">
 					
-					
-					<span class="active">
-						<a href="http://www.arkansasonline.com/pops"><img src="/media/images/main_banner/potr_banner.jpg" alt="Pops on the River" border="0"></a>
-					</span>
-
 					<span class>
 						<a href="/season" alt="Arkansas Symphony Orchestra 2014-2015 Season"><img src="/media/images/main_banner/1415season_banner_temp.jpg" title="Click for Details!" alt="New Subscribers Save 50% - Click for Details!" border="0"></a>
 					</span>
-
-
-
 
 
 
@@ -127,8 +83,8 @@ add  comment {% comment %}{% endcomment %}tags around the slideshow block to dis
 							</div>	
 							<br>
 						{% endfor %}
-							
-						<a href="/concerts/all/upcoming/2013-2014/" class="smallBlue">more concerts</a>
+					<br/>		
+						<a href="/concerts/all/upcoming/2014-2015/" class="smallBlue">more concerts</a>
 					
 					</div>
 				</td>
